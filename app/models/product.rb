@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :price, :title, :image
+  attr_accessible :description, :price, :title, :image, :address, :latitude, :longitude
   validates :title, :description, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0.01 }
   has_many :line_items
@@ -7,6 +7,10 @@ class Product < ActiveRecord::Base
   mount_uploader :image, ProductImageUploader
 
   before_destroy :ensure_not_referenced_by_any_line_item
+
+  # geocode
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   def ensure_not_referenced_by_any_line_item
     if line_items.count.zero?
