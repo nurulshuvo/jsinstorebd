@@ -1,16 +1,53 @@
-<% if notice %>
-  <p id="notice" ><%= notice %></p>
-<% end %>
 
-<h1>Product Catalog</h1>
-<% @products.each do |product| %>
-  <div class="entry" >
-    <h3><%= product.title %></h3>
-    <%= image_tag product.image_url(:thumb).to_s %>
-    <%= sanitize product.description %>
-    <div class="price_line" >
-    <span class="price" ><%= number_to_currency(product.price) %></span>
-    <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
-    </div>
-  </div>
-<% end %>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Categories</li>
+              <li><a href="#">Not</a></li>
+              <li><a href="#">Functional</a></li>
+              <li><a href="#">Yet</a></li>
+              <li><a href="#">Will be soon</a></li>
+              <li class="nav-header">Demo Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="nav-header">Demo</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+
+
+
+
+
+        <div class="span9">
+          <div class="hero-unit">
+            <h1>Hello, world!</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+          </div>
+
+<h2>Product Catalog</h2>
+<hr>
+
+          <div class="row-fluid">
+            <% @products.each do |product| %>
+              <div class="span4">
+                <h3><%= product.title %></h3>
+                <%= image_tag product.image_url(:thumb).to_s %>
+                <p><%= sanitize product.description %> </p>
+                <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+                <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+              </div><!--/span-->
+            <% end %>
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
