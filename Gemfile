@@ -23,7 +23,7 @@ end
 
 gem 'jquery-rails'
 gem 'carrierwave'
-gem 'rmagick'
+# gem 'rmagick'
 
 
 gem 'devise'

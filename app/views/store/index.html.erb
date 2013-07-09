@@ -42,7 +42,7 @@
       <div class="span4">
         <h3><%= product.title %></h3>
         <p><%= product.address %></p>
-        <%= image_tag product.image_url(:thumb).to_s %>
+        <%= image_tag product.image_url.to_s %>
         <p><%= sanitize product.description %> </p>
         <span class="price" >Price: <%= number_to_currency(product.price) %></span>
         <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
@@ -58,7 +58,7 @@
     <div class="span4">
       <h3><%= product.title %></h3>
       <p><%= product.address %></p>
-      <%= image_tag product.image_url(:thumb).to_s %>
+      <%= image_tag product.image_url.to_s %>
       <p><%= sanitize product.description %> </p>
       <span class="price" >Price: <%= number_to_currency(product.price) %></span>
       <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
