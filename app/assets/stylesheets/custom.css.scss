@@ -7,3 +7,16 @@ body { padding-top: 60px; }
 .sidebar-nav {
         padding: 9px 0;
       }
+
+
+
+#map img {
+  max-width: none;
+}
+#map label {
+  width: auto; display:inline;
+}
+
+#map {
+  height: 300px;
+}

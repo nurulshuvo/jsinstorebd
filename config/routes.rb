@@ -1,7 +1,11 @@
 Jsinstorebd::Application.routes.draw do
   devise_for :users
 
+  resources :users do
+    resources :products
+  end
   resources :orders
+
 
 
   resources :line_items

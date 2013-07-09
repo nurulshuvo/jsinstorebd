@@ -15,22 +15,5 @@
   <%= @product.price %>
 </p>
 
-<p>
-  <b>Latitude:</b>
-  <%= @product.latitude %>
-</p>
-
-<p>
-  <b>Longitude:</b>
-  <%= @product.longitude %>
-</p>
-
-<h3>Nearby Products:</h3>
-<ul>
-  <% for product in @product.nearbys(5) %>
-    <li><%= link_to product.address, product %> (<%= product.distance.round(2) %>)miles</li>
-  <% end %>
-</ul>
-
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

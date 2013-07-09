@@ -5,6 +5,8 @@ gem 'rails', '3.2.13'
 
 group :development, :test do
   gem 'sqlite3'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 
@@ -26,3 +28,4 @@ gem 'rmagick'
 
 gem 'devise'
 gem 'geocoder'
+gem 'gmaps4rails'

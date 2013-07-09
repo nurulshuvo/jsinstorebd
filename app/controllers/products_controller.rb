@@ -25,7 +25,8 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.json
   def new
-    @product = Product.new
+    @user = User.find(current_user.id)
+    @product = @user.products.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +42,8 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(params[:product])
+    @user = User.find(params[:user_id])
+    @product = @user.products.create(params[:product])
 
     respond_to do |format|
       if @product.save

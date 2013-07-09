@@ -28,26 +28,55 @@
 
 
 
-        <div class="span9">
-          <div class="hero-unit">
-            <h1>Place for GMAP</h1>
-            <p>This is where The Google map will be.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-          </div>
+<div class="span9">
+
+<%= gmaps4rails(@json) %>
 
 <h2>Product Catalog</h2>
 <hr>
 
-          <div class="row-fluid">
-            <% @products.each do |product| %>
-              <div class="span4">
-                <h3><%= product.title %></h3>
-                <%= image_tag product.image_url(:thumb).to_s %>
-                <p><%= sanitize product.description %> </p>
-                <span class="price" >Price: <%= number_to_currency(product.price) %></span>
-                <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
-              </div><!--/span-->
-            <% end %>
-          </div><!--/row-->
-        </div><!--/span-->
-      </div><!--/row-->
+<% if current_user %>
+<% @location = Product.new(address: "#{current_user.address}", latitude: "#{current_user.latitude}", longitude: "#{current_user.longitude}") %>
+<div class="row-fluid">
+  <% for product in @location.nearbys(5) %>
+      <div class="span4">
+        <h3><%= product.title %></h3>
+        <p><%= product.address %></p>
+        <%= image_tag product.image_url(:thumb).to_s %>
+        <p><%= sanitize product.description %> </p>
+        <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+        <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+      </div><!--/span-->
+  <% end %>
+</div><!--/row-->
+</div><!--/span-->
+</div><!--/row-->
+<% else %>
+<p class='alery'>Please Sign in for a better experience</p>
+<div class="row-fluid">
+  <% @products.each do |product| %>
+    <div class="span4">
+      <h3><%= product.title %></h3>
+      <p><%= product.address %></p>
+      <%= image_tag product.image_url(:thumb).to_s %>
+      <p><%= sanitize product.description %> </p>
+      <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+      <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+    </div><!--/span-->
+  <% end %>
+</div><!--/row-->
+</div><!--/span-->
+</div><!--/row-->
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
