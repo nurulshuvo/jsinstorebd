@@ -76,11 +76,14 @@ class ProductsController < ApplicationController
   # DELETE /products/1.json
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-
-    respond_to do |format|
-      format.html { redirect_to products_url }
-      format.json { head :no_content }
+    @user = current_user.id
+    if @user == @product.user.id
+      @product.destroy
+      redirect_to products_url, notice: 'Product was successfully destroyed.'
+    else
+      redirect_to products_url, notice: 'You are not authorized to delete this product!'
     end
+
+
   end
 end
