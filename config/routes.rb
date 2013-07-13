@@ -1,5 +1,5 @@
 Jsinstorebd::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :path => '/'
 
   resources :users do
     resources :products
