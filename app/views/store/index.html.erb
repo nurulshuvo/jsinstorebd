@@ -1,28 +1,17 @@
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Categories</li>
-              <li><a href="#">Not</a></li>
-              <li><a href="#">Functional</a></li>
-              <li><a href="#">Yet</a></li>
-              <li><a href="#">Will be soon</a></li>
-              <li class="nav-header">Demo Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Demo</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+ <div class="container-fluid">
+ <div class="row-fluid">
+ <div class="span3">
+ <div class="well sidebar-nav">
+  <ul class="nav nav-list">
+   <li class="nav-header">Categories</li>
+   <li><%= link_to "Electronics", category: 'Electronics' %></li>
+   <li><%= link_to "Apparel", category: 'Apparel' %></li>
+   <li><%= link_to "Groceries", category: 'Groceries' %></li>
+   <li><strong><%= link_to "All Products", store_path %></strong></li>
+  </ul>
+ </div><!--/.well -->
+</div><!--/span-->
 
 
 
@@ -37,8 +26,12 @@
 
 <% if current_user %>
 <% @location = Product.new(address: "#{current_user.address}", latitude: "#{current_user.latitude}", longitude: "#{current_user.longitude}") %>
-<div class="row-fluid">
-  <% for product in @location.nearbys(5) %>
+
+  <div class="row-fluid customleft">
+
+  <% if params[:category] %>
+
+  <% for product in @location.nearbys(5).where(category: params[:category]) %>
       <div class="span4">
         <h3><%= product.title %></h3>
         <p><%= product.address %></p>
@@ -48,12 +41,27 @@
         <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
       </div><!--/span-->
   <% end %>
+
+  <% else %>
+      <% for product in @location.nearbys(5) %>
+        <div class="span4">
+          <h3><%= product.title %></h3>
+          <p><%= product.address %></p>
+          <%= image_tag product.image_url.to_s %>
+          <p><%= sanitize product.description %> </p>
+          <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+          <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+        </div><!--/span-->
+      <% end %>
+  <% end %>
+
+
 </div><!--/row-->
 </div><!--/span-->
 </div><!--/row-->
 <% else %>
-<p class='alery'>Please Sign in for a better experience</p>
-<div class="row-fluid">
+<p class='alert'>Please Sign in for a better experience</p>
+<div class="row-fluid customleft">
   <% @products.each do |product| %>
     <div class="span4">
       <h3><%= product.title %></h3>

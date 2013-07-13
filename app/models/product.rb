@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :description, :price, :title, :image, :address, :latitude, :longitude, :user_id
+  attr_accessible :description, :price, :title, :image, :address, :latitude, :longitude, :user_id, :category
   validates :title, :description, :user_id, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0.01 }
   has_many :line_items
@@ -14,6 +14,8 @@ class Product < ActiveRecord::Base
   after_validation :geocode, if: :address_changed?
 
   acts_as_gmappable
+
+  CATEGORY_SELECT = ['Electronics', 'Apparel', 'Groceries']
 
 def gmaps4rails_address
   "#{self.address}"

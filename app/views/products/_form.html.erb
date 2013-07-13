@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :category %><br />
+    <%= f.select :category, Product::CATEGORY_SELECT, prompt: 'Select a category' %>
+  </div>
+  <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
