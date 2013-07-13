@@ -1,7 +1,11 @@
 class StoreController < ApplicationController
   def index
-    if params[:category]
-      @products = Product.where(category: params[:category])
+    if params[:category] || params[:search]
+      if params[:category]
+        @products = Product.where(category: params[:category])
+      else
+        @products = Product.where("title like ?", params[:search])
+      end
     else
       @products = Product.all
     end

@@ -29,9 +29,10 @@
 
   <div class="row-fluid customleft">
 
-  <% if params[:category] %>
+  <% if params[:category] || params[:search] %>
 
-  <% for product in @location.nearbys(5).where(category: params[:category]) %>
+  <% if params[:category]%>
+    <% for product in @location.nearbys(5).where(category: params[:category]) %>
       <div class="span4">
         <h3><%= product.title %></h3>
         <p><%= product.address %></p>
@@ -40,6 +41,18 @@
         <span class="price" >Price: <%= number_to_currency(product.price) %></span>
         <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
       </div><!--/span-->
+    <% end %>
+  <% else %>
+    <% for product in @location.nearbys(5).where("title like ?", params[:search]) %>
+      <div class="span4">
+        <h3><%= product.title %></h3>
+        <p><%= product.address %></p>
+        <%= image_tag product.image_url.to_s %>
+        <p><%= sanitize product.description %> </p>
+        <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+        <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+      </div><!--/span-->
+    <% end %>
   <% end %>
 
   <% else %>
