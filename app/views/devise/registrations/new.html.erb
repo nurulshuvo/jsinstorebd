@@ -13,8 +13,8 @@
   <%= f.password_field :password_confirmation %></div>
 
 
-  <div><%= f.label :address %><br />
-  <%= f.text_field :address %></div>
+  <div><%= f.label :address, 'Location' %><br />
+  <%= f.select :address, User::USER_ADDRESS, prompt: 'Select a city' %>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>

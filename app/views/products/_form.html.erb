@@ -28,8 +28,8 @@
     <%= f.text_field :price %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%= f.label :address, 'Location' %><br />
+    <%= f.select :address, Product::PRODUCT_ADDRESS, prompt: 'Select a city' %>
   </div>
   <div class="field">
     <%= f.label :image %><br />

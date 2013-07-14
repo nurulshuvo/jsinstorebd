@@ -17,7 +17,7 @@
 
 
 
-<div class="span9">
+<div class="span9" id="product">
 
 <%= gmaps4rails(@json) %>
 
@@ -32,9 +32,9 @@
   <% if params[:category] || params[:search] %>
 
   <% if params[:category]%>
-    <% for product in @location.nearbys(5).where(category: params[:category]) %>
+    <% for product in @location.nearbys(20000).where(category: params[:category]) %>
       <div class="span4">
-        <h3><%= product.title %></h3>
+        <h3><%= product.title.titleize %></h3>
         <p><%= product.address %></p>
         <%= image_tag product.image_url.to_s %>
         <p><%= sanitize product.description %> </p>
@@ -43,9 +43,23 @@
       </div><!--/span-->
     <% end %>
   <% else %>
-    <% for product in @location.nearbys(5).where("title like ?", params[:search]) %>
+    <% if params[:search].blank? %>
+
+      <% for product in @location.nearbys(20000) %>
+        <div class="span4">
+          <h3><%= product.title.titleize %></h3>
+          <p><%= product.address %></p>
+          <%= image_tag product.image_url.to_s %>
+          <p><%= sanitize product.description %> </p>
+          <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+          <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+        </div><!--/span-->
+      <% end %>
+
+    <% else %>
+    <% for product in @location.nearbys(20000).where("title like ?", params[:search]) %>
       <div class="span4">
-        <h3><%= product.title %></h3>
+        <h3><%= product.title.titleize %></h3>
         <p><%= product.address %></p>
         <%= image_tag product.image_url.to_s %>
         <p><%= sanitize product.description %> </p>
@@ -53,12 +67,15 @@
         <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
       </div><!--/span-->
     <% end %>
+
+    <% end %>
+
   <% end %>
 
   <% else %>
-      <% for product in @location.nearbys(5) %>
+      <% for product in @location.nearbys(20000) %>
         <div class="span4">
-          <h3><%= product.title %></h3>
+          <h3><%= product.title.titleize %></h3>
           <p><%= product.address %></p>
           <%= image_tag product.image_url.to_s %>
           <p><%= sanitize product.description %> </p>
@@ -77,7 +94,7 @@
 <div class="row-fluid customleft">
   <% @products.each do |product| %>
     <div class="span4">
-      <h3><%= product.title %></h3>
+      <h3><%= product.title.titleize %></h3>
       <p><%= product.address %></p>
       <%= image_tag product.image_url.to_s %>
       <p><%= sanitize product.description %> </p>
@@ -90,14 +107,3 @@
 </div><!--/row-->
 
 <% end %>
-
-
-
-
-
-
-
-
-
-
-

@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
   has_many :orders, through: :line_items
   mount_uploader :image, ProductImageUploader
 
+  before_save {|product| product.title = product.title.downcase }
   before_destroy :ensure_not_referenced_by_any_line_item
 
   # geocode
@@ -16,6 +17,7 @@ class Product < ActiveRecord::Base
   acts_as_gmappable
 
   CATEGORY_SELECT = ['Electronics', 'Apparel', 'Groceries']
+  PRODUCT_ADDRESS = ['Barisal, Bangladesh', 'Chittagong, Bangladesh', 'Dhaka, Bangladesh', 'Khulna, Bangladesh', 'Sylhet, Bangladesh', 'Rangpur, Bangladesh']
 
 def gmaps4rails_address
   "#{self.address}"

@@ -40,17 +40,67 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/store/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="68" selection-start="489" selection-end="489" vertical-scroll-proportion="-10.625">
+            <state line="30" column="68" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_nav.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_nav.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_nav.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="19" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.60402685">
+            <state line="25" column="19" selection-start="1323" selection-end="1323" vertical-scroll-proportion="-14.833333">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RailsDependency/#jsinstorebd" pinned="false" current="true" current-in-tab="true">
+        <entry file="uml://RailsDependency/#jsinstorebd">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>RailsDependency</ID>
+              <OriginalElement>#jsinstorebd</OriginalElement>
+              <nodes>
+                <node x="0.0" y="0.0">User</node>
+                <node x="346.0" y="31.5">Product</node>
+                <node x="598.0" y="196.66666666666669">Order</node>
+                <node x="598.0" y="106.66666666666669">Cart</node>
+                <node x="850.0" y="80.41666666666669">LineItem</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="Product" target="Order">
+                  <point x="86.0" y="70.5" />
+                  <point x="-86.0" y="-0.0" />
+                </edge>
+                <edge source="Order" target="LineItem">
+                  <point x="86.0" y="-0.0" />
+                  <point x="-78.0" y="38.0" />
+                </edge>
+                <edge source="Product" target="LineItem">
+                  <point x="86.0" y="-70.5" />
+                  <point x="598.0" y="96.16666666666669" />
+                  <point x="770.0" y="96.16666666666669" />
+                  <point x="-78.0" y="-37.99999999999999" />
+                </edge>
+                <edge source="User" target="Product">
+                  <point x="133.0" y="-0.0" />
+                  <point x="-86.0" y="-0.0" />
+                </edge>
+                <edge source="Cart" target="LineItem">
+                  <point x="86.0" y="-0.0" />
+                  <point x="-78.0" y="-0.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.0" x="503.5" y="272.5" />
+              <SelectedNodes>
+                <node>Cart</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Association fields</Category>
+                <Category>Migration fields</Category>
+              </Categories>
             </state>
           </provider>
         </entry>
@@ -58,7 +108,7 @@
       <file leaf-file-name="store_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/store_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="52" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
+            <state line="9" column="52" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -116,6 +166,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="RailsProjectView">
         <subPane>
           <PATH>
@@ -130,7 +181,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -162,10 +212,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -181,47 +227,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="products" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jsinstorebd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jsinstorebd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jsinstorebd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jsinstorebd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -232,10 +238,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager" selected="Rails.Development: jsinstorebd">
     <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
@@ -445,7 +452,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20984848" sideWeight="0.6702786" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2128788" sideWeight="0.6702786" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -514,11 +521,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/products/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="8" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/products/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -536,16 +538,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20130713093051_add_category_to_products.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/products_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="26" selection-start="642" selection-end="642" vertical-scroll-proportion="-0.48387095">
-          <folding />
-        </state>
+        <state line="31" column="26" selection-start="642" selection-end="642" vertical-scroll-proportion="-0.48387095" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/order.rb">
@@ -557,23 +555,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/orders/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/orders/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="86" selection-start="722" selection-end="804" vertical-scroll-proportion="-17.5">
-          <folding />
-        </state>
+        <state line="28" column="86" selection-start="722" selection-end="804" vertical-scroll-proportion="-17.5" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/products/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="80" selection-start="523" selection-end="523" vertical-scroll-proportion="-8.583333">
-          <folding />
-        </state>
+        <state line="15" column="80" selection-start="523" selection-end="523" vertical-scroll-proportion="-8.583333" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/product.rb">
@@ -585,36 +577,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="26" selection-start="266" selection-end="266" vertical-scroll-proportion="0.5564516">
-          <folding />
-        </state>
+        <state line="23" column="26" selection-start="266" selection-end="266" vertical-scroll-proportion="0.5564516" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/products/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/store_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="52" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
+        <state line="9" column="52" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/store/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="68" selection-start="489" selection-end="489" vertical-scroll-proportion="-10.625">
+        <state line="30" column="68" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_nav.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="19" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.60402685">
+        <state line="25" column="19" selection-start="1323" selection-end="1323" vertical-scroll-proportion="-14.833333">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://RailsDependency/#jsinstorebd">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>RailsDependency</ID>
+          <OriginalElement>#jsinstorebd</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">User</node>
+            <node x="346.0" y="31.5">Product</node>
+            <node x="598.0" y="196.66666666666669">Order</node>
+            <node x="598.0" y="106.66666666666669">Cart</node>
+            <node x="850.0" y="80.41666666666669">LineItem</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Product" target="Order">
+              <point x="86.0" y="70.5" />
+              <point x="-86.0" y="-0.0" />
+            </edge>
+            <edge source="Order" target="LineItem">
+              <point x="86.0" y="-0.0" />
+              <point x="-78.0" y="38.0" />
+            </edge>
+            <edge source="Product" target="LineItem">
+              <point x="86.0" y="-70.5" />
+              <point x="598.0" y="96.16666666666669" />
+              <point x="770.0" y="96.16666666666669" />
+              <point x="-78.0" y="-37.99999999999999" />
+            </edge>
+            <edge source="User" target="Product">
+              <point x="133.0" y="-0.0" />
+              <point x="-86.0" y="-0.0" />
+            </edge>
+            <edge source="Cart" target="LineItem">
+              <point x="86.0" y="-0.0" />
+              <point x="-78.0" y="-0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="503.5" y="272.5" />
+          <SelectedNodes>
+            <node>Cart</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Association fields</Category>
+            <Category>Migration fields</Category>
+          </Categories>
         </state>
       </provider>
     </entry>

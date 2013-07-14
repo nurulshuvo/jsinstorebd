@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
 validates :address, presence: true
 
+USER_ADDRESS = ['Barisal, Bangladesh', 'Chittagong, Bangladesh', 'Dhaka, Bangladesh', 'Khulna, Bangladesh', 'Sylhet, Bangladesh', 'Rangpur, Bangladesh']
+
   # geocode
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

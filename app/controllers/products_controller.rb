@@ -3,13 +3,7 @@ class ProductsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @products = Product.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.mobile
-      format.json { render json: @products }
-    end
+    @products = Product.where(user_id: current_user.id)
   end
 
   # GET /products/1
@@ -17,11 +11,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.mobile
-      format.json { render json: @product }
-    end
   end
 
   # GET /products/new
@@ -30,11 +19,6 @@ class ProductsController < ApplicationController
     @user = User.find(current_user.id)
     @product = @user.products.build
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.mobile
-      format.json { render json: @product }
-    end
   end
 
   # GET /products/1/edit
