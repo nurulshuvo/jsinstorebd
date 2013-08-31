@@ -1,0 +1,23 @@
+<h1>Listing thanas</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @thanas.each do |thana| %>
+  <tr>
+    <td><%= thana.name %></td>
+    <td><%= link_to 'Show', thana %></td>
+    <td><%= link_to 'Edit', edit_thana_path(thana) %></td>
+    <td><%= link_to 'Destroy', thana, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Thana', new_thana_path %>

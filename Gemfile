@@ -29,5 +29,8 @@ gem 'carrierwave'
 gem 'devise'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'ancestry'
 
 gem 'mobylette'
+
+gem 'acts-as-taggable-on'

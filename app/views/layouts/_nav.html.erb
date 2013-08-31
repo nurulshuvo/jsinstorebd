@@ -22,8 +22,17 @@
 
 
             <%= form_tag store_path, method: :get, class: "navbar-text pull-left" do %>
-              <%= text_field_tag :search, params[:search], class: "search-query", placeholder: "Search" %>
+              Search by: <%= text_field_tag :search, params[:search], class: "search-query", placeholder: "Name" %>
+               <%#= text_field_tag :cat_search, params[:cat_search], class: "search-query", placeholder: "Category" %>
+               <%#= select_tag :cat_search, @categories_for_list, name, prompt: "Select a category" %>
+
+               <%= select_tag :cat_search, options_for_select(Category.all.map {|obj, id| [obj, obj]}), prompt: "Select a category", class: "selectpicker" %>
+               <%#= select_tag :cat_search, options_for_select(@categories_for_list.map { |obj, id | [obj, obj] }), prompt: "Select a category", class: "selectpicker" %>
+               <%= submit_tag "search", class: "btn btn-small" %>
             <% end %>
+
+            <%= link_to "Advanced", new_search_path, class: "navbar-text pull-left" %>
+
 
             <ul class="nav">
               <li><a href="<%= store_path %>">Search</a></li>

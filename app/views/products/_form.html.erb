@@ -1,4 +1,5 @@
-<%= form_for([@user,@product], html: {multipart: :true}) do |f| %>
+<%= form_for([@user,@product], html: {multipart: :true, id: "default"}) do |f| %>
+
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -11,31 +12,144 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :category %><br />
-    <%= f.select :category, Product::CATEGORY_SELECT, prompt: 'Select a category' %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :address, 'Location' %><br />
-    <%= f.select :address, Product::PRODUCT_ADDRESS, prompt: 'Select a city' %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+        <fieldset title="Step 1">
+          <legend>description one</legend>
+
+
+          <div class="field">
+            <%= f.label :title, size: 40 %><br />
+            <%= f.text_field :title %>
+          </div>
+        <div class="field">
+          <%= f.label :description %><br />
+          <%= f.text_area :description %>
+        </div>
+
+          <div class="field">
+            <%= f.label :price %><br />
+            <%= f.text_field :price %>
+          </div>
+
+
+        </fieldset>
+  
+        <fieldset title="Step 2">
+          <legend>description two</legend>
+          
+
+          <div class="field">
+            <%= f.label :tag_list, "Tags (seperated by commas)" %><br />
+            <%= f.text_field :tag_list %>
+          </div>
+              <div class="field">
+    
+                <%= f.select(:category_id, @categories_for_list, prompt: "Select a category") %>
+              <%#= f.label :category_id, "Category" %><br />
+              <%#= f.select :category_id, Product::CATEGORY_SELECT, prompt: 'Select a category' %>
+              <%#= collection_select(:product, :category_id, Category.order(:name), :id, :name) %>
+              <%#= f.select(:category_id, Category.all.collect {|a| [a.name, a.id]}) %>
+             </div>
+
+
+            <div class="field">
+              <%= f.label :image %><br />
+              <%= f.file_field :image %>
+            </div>
+
+        </fieldset>
+
+        <fieldset title="Step 3">
+          <legend>description three</legend>
+
+          <div class="field">
+            <%= f.label :division, 'Division' %><br />
+            <%= f.collection_select :division, Division.order(:name), :name, :name, include_blank: false, prompt: 'Select a Division' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :district, 'District' %><br />
+            <%= f.grouped_collection_select :district, Division.order(:name), :districts, :name, :name, :name, include_blank: false, prompt: 'Select a District' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :thana, 'Thana' %><br />
+            <%= f.grouped_collection_select :thana, District.order(:name), :thanas, :name, :name, :name, include_blank: false, prompt: 'Select a Thana' %>
+          </div>
+
+        </fieldset>
+
+
+    <%= f.submit "Finish", class: "finish" %>
+  
 <% end %>
+
+
+
+    <script type="text/javascript">
+      $(function() {
+
+        $('#default').stepy();
+
+        $('#custom').stepy({
+          backLabel:  'Backward',
+          block:    true,
+          errorImage: true,
+          nextLabel:  'Forward',
+          titleClick: true,
+          validate: true
+        });
+
+        $('div#step').stepy({
+          finishButton: false
+        });
+
+        // Optionaly
+        $('#custom').validate({
+          errorPlacement: function(error, element) {
+            $('#custom div.stepy-error').append(error);
+          }, rules: {
+            'user':     { maxlength: 1 },
+            'email':    'email',
+            'checked':    'required',
+            'newsletter': 'required',
+            'password':   'required',
+            'bio':      'required',
+            'day':      'required'
+          }, messages: {
+            'user':     { maxlength: 'User field should be less than 1!' },
+            'email':    { email:   'Invalid e-mail!' },
+            'checked':    { required:  'Checked field is required!' },
+            'newsletter': { required:  'Newsletter field is required!' },
+            'password':   { required:  'Password field is requerid!' },
+            'bio':      { required:  'Bio field is required!' },
+            'day':      { required:  'Day field is requerid!' },
+          }
+        });
+
+        $('#callback').stepy({
+          back: function(index) {
+            alert('Going to step ' + index + '...');
+          }, next: function(index) {
+            if ((Math.random() * 10) < 5) {
+              alert('Invalid random value!');
+              return false;
+            }
+
+            alert('Going to step ' + index + '...');
+          }, select: function(index) {
+            alert('Current step ' + index + '.');
+          }, finish: function(index) {
+            alert('Finishing on step ' + index + '...');
+          }, titleClick: true
+        });
+
+        $('#target').stepy({
+          description:  false,
+          legend:     false,
+          titleClick:   true,
+          titleTarget:  '#title-target'
+        });
+
+      });
+    </script>

@@ -1,0 +1,53 @@
+  <% if params[:category]%>
+    <% for product in @location.nearbys(20000).where(category_id: params[:category]) %>
+      <div class="span4">
+        <h3><%= product.title.titleize %></h3>
+        <p><%= product.address %></p>
+        <%= image_tag product.image_url.to_s %>
+        <p><%= sanitize product.description %> </p>
+        <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+        <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+      </div><!--/span-->
+    <% end %>
+  <% else %>
+    <% if params[:search].blank? %>
+
+      <% for product in @location.nearbys(20000) %>
+        <div class="span4">
+          <h3><%= product.title.titleize %></h3>
+          <p><%= product.address %></p>
+          <%= image_tag product.image_url.to_s %>
+          <p><%= sanitize product.description %> </p>
+          <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+          <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+        </div><!--/span-->
+      <% end %>
+
+    <% else %>
+    <% for product in @location.nearbys(20000).where("title like ?", params[:search]) %>
+      <div class="span4">
+        <h3><%= product.title.titleize %></h3>
+        <p><%= product.address %></p>
+        <%= image_tag product.image_url.to_s %>
+        <p><%= sanitize product.description %> </p>
+        <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+        <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+      </div><!--/span-->
+    <% end %>
+
+    <% end %>
+
+  <% end %>
+
+  <% else %>
+      <% for product in @location.nearbys(20000) %>
+        <div class="span4">
+          <h3><%= product.title.titleize %></h3>
+          <p><%= product.address %></p>
+          <%= image_tag product.image_url.to_s %>
+          <p><%= sanitize product.description %> </p>
+          <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+          <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+        </div><!--/span-->
+      <% end %>
+  <% end %>

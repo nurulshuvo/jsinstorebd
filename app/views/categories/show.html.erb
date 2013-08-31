@@ -1,0 +1,29 @@
+<ul>
+  <% Category.roots.each do |category| %>
+    <li><%= link_to category.name, category %></li>
+    <ul>
+      <% category.children.each do |sub_cat|%>
+        <li><%= link_to_unless_current sub_cat.name, sub_cat %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>
+
+<p>
+  <b>Name:</b>
+  <%= @category.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @category.content %>
+</p>
+
+<p>
+  <b>Ancestry:</b>
+  <%= @category.ancestry %>
+</p>
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

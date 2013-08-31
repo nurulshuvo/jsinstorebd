@@ -1,0 +1,25 @@
+<%= form_for(@thana) do |f| %>
+  <% if @thana.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@thana.errors.count, "error") %> prohibited this thana from being saved:</h2>
+
+      <ul>
+      <% @thana.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :district_id, "District" %><br />
+    <%= f.select :district_id, @districts.map{ |d| [d.name, d.id] } %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

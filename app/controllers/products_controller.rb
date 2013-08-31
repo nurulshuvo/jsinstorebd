@@ -1,34 +1,32 @@
 class ProductsController < ApplicationController
 
+
   before_filter :authenticate_user!
 
   def index
     @products = Product.where(user_id: current_user.id)
   end
 
-  # GET /products/1
-  # GET /products/1.json
+
   def show
     @product = Product.find(params[:id])
-
   end
 
-  # GET /products/new
-  # GET /products/new.json
+
   def new
     @user = User.find(current_user.id)
     @product = @user.products.build
 
   end
 
-  # GET /products/1/edit
+
   def edit
     @product = Product.find(params[:id])
   end
 
-  # POST /products
-  # POST /products.json
+
   def create
+
     @user = User.find(params[:user_id])
     @product = @user.products.create(params[:product])
 
@@ -45,8 +43,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PUT /products/1
-  # PUT /products/1.json
+
   def update
     @product = Product.find(params[:id])
 
@@ -63,8 +60,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.json
+
   def destroy
     @product = Product.find(params[:id])
     @user = current_user.id
@@ -75,5 +71,7 @@ class ProductsController < ApplicationController
       redirect_to products_url, notice: 'You are not authorized to delete this product!'
     end
   end
+
+
 
 end

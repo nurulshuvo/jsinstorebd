@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  before_filter :collection_for_parent_select
 
   before_filter :prepare_for_mobile
 
@@ -35,5 +35,20 @@ class ApplicationController < ActionController::Base
     def prepare_for_mobile
       session[:mobile_param] = params[:mobile] if params[:mobile]
       request.format = :mobile if mobile_device?
+    end
+
+    # for grouping categories
+    def collection_for_parent_select
+      @categories_for_list = ancestry_options(Category.unscoped.arrange(:order => 'name')) {|i| "#{'-' * i.depth} #{i.name}" }
+    end
+
+    def ancestry_options(items)
+      result = []
+      items.map do |item, sub_items|
+        result << [yield(item), item.id]
+      
+        result += ancestry_options(sub_items) {|i| "#{'-' * i.depth} #{i.name}" }
+      end
+       result
     end
 end

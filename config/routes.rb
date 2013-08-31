@@ -1,12 +1,16 @@
 Jsinstorebd::Application.routes.draw do
+  resources :thanas
+  resources :districts
+  resources :divisions
+  resources :categories
+  resources :searches
+
   devise_for :users, :path => '/'
 
   resources :users do
     resources :products
   end
   resources :orders
-
-
 
   resources :line_items
 

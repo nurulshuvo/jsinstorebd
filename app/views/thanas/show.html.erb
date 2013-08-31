@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @thana.name %><br>
+  <b>Division:</b>
+  <%= @thana.district.division%><br>
+  <b>District:</b>
+  <%= @thana.district %>
+</p>
+
+
+<%= link_to 'Edit', edit_thana_path(@thana) %> |
+<%= link_to 'Back', thanas_path %>
