@@ -51,4 +51,11 @@ class ApplicationController < ActionController::Base
       end
        result
     end
+
+
+    include Mobylette::RespondToMobileRequests
 end
+
+
+
+

@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
     @orders = Order.all
 
     respond_to do |format|
-      format.html 
+      format.html
       format.json { render json: @orders }
     end
   end
@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
     @order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
-      if @order.save
+      if @order.save_with_payment
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         format.html { redirect_to store_url, notice: 'Thank you for rour order.' }

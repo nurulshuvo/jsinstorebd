@@ -19,4 +19,10 @@ USER_ADDRESS = ['Barisal, Bangladesh', 'Chittagong, Bangladesh', 'Dhaka, Banglad
     address
   end
 
+  def to_s
+    email
+  end
+
+  acts_as_messageable
+
 end

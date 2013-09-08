@@ -1,6 +1,6 @@
 <h1>Advanced Search</h1>
 
-<%= form_for @search do |f| %>
+<%= form_for @search, html: {class: "src"} do |f| %>
   <div class="field">
     <%= f.label :keywords %> <br>
     <%= f.text_field :keywords %>
@@ -8,7 +8,7 @@
 
   <div class="field">
     <%= f.label :tag, "Tag (seperated by comma)" %> <br>
-    <%= f.text_field :tag %>
+    <%= f.text_field :tag, data: { autocomplete_source: auto_tag} %>
   </div>
 
   <div class="field">

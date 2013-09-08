@@ -1,4 +1,8 @@
 Jsinstorebd::Application.routes.draw do
+root to: 'store#index', as: 'store'
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :thanas
   resources :districts
   resources :divisions
@@ -6,6 +10,9 @@ Jsinstorebd::Application.routes.draw do
   resources :searches
 
   devise_for :users, :path => '/'
+  ActiveAdmin.routes(self)
+
+  match 'users/:id' => 'users#show', as: :user
 
   resources :users do
     resources :products
@@ -21,7 +28,14 @@ Jsinstorebd::Application.routes.draw do
     get :who_bought, on: :member
   end
 
-root to: 'store#index', as: 'store'
+
+
+match 'messages' => 'messages#index', as: :messages
+match 'messages/new' => 'messages#new', as: :new_message
+match 'messages/new/:email' => 'messages#new', as: :new_email_message
+match 'messages/create' => 'messages#create', as: :create_message
+match 'messages/show/:id' => 'messages#show', as: :message
+match 'messages/delete/:id' => 'messages#destroy', as: :delete_message
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

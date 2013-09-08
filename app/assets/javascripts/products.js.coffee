@@ -1,5 +1,6 @@
 jQuery ->
   $('#product_district').parent().hide()
+  $('#product_thana').parent().hide()
   districts = $('#product_district').html()
   $('#product_division').change ->
     division = $('#product_division :selected').text()

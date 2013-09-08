@@ -1,3 +1,6 @@
+<%= link_to "Meet the owner", user_path(@product.user), class: "orange margin-left" %>
+
+<div class="product-show">
 <p>
   <b>Title:</b>
   <%= @product.title %>
@@ -14,11 +17,16 @@
 </p>
 <p>
   <b>Image:</b>
-  <%= @product.image %>
+  <%#= @product.image %>
+  <%= image_tag @product.image_url.to_s %>
 </p>
-
+<%= button_to 'Add to Cart', line_items_path(product_id: @product.id), class: "btn" %>
 <p>
   Tags: <%= @product.tag_list %>
 </p>
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to('Edit', edit_product_path(@product)) if current_user.id == @product.user.id %> |
+<%= link_to 'Back', products_path %> |
+
+</div>
+<%= gmaps4rails(@json) %>
+

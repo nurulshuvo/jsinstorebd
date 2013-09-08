@@ -1,0 +1,11 @@
+<%= form_for :message, url: create_message_path, method: :post do |f| %>
+  <%#= f.label :to %>
+  <%#= f.text_field :to %>
+  <label for="acts_as_messageable_message_to">To</label>
+  <input type="text" name="acts_as_messageable_message[to]" size="30" id="acts_as_messageable_message_to" value="<%= "#{params[:email]}.#{params[:format]}"%>">
+  <%= f.label :topic %>
+  <%= f.text_field :topic %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit "Send" %>
+<% end %>

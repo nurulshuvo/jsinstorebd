@@ -21,7 +21,7 @@ group :production do
   gem 'pg'
 end
 
-gem 'jquery-rails'
+gem "jquery-rails", "~> 2.3.0"
 gem 'carrierwave'
 # gem 'rmagick'
 
@@ -31,6 +31,9 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'ancestry'
 
-gem 'mobylette'
+gem 'mobylette', ">= 1.4.2"
 
 gem 'acts-as-taggable-on'
+gem 'acts-as-messageable'
+gem 'activeadmin'
+gem 'stripe'

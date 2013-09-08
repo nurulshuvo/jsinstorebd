@@ -1,0 +1,14 @@
+<%= link_to "Send a message to the owner", new_email_message_path(@user.email), class: "orange" %>
+<%= @user.email %>
+<%= link_to "inbox", messages_path %>
+<p style="margin:15px;margin-left:20px; background: green; padding: 10px;">More Product form Owner</p>
+<% @products.each do |product| %>
+<div class="sp">
+  <h3><%= link_to product.title.titleize, product_path(product) %></h3>
+  <p><%= product.address %></p>
+  <%= image_tag product.image_url.to_s, class: "small-img" %>
+  <p><%= sanitize product.description %> </p>
+  <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+      <%= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn" %>
+</div>
+<% end %>

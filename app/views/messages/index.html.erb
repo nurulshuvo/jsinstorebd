@@ -1,0 +1,9 @@
+<% unless @messages.empty? %>
+  <%= @messages.each do |m| %>
+    <p>
+    <%= m.topic %>
+    <%= link_to "Read", message_path(m)%>
+    </p>
+  <% end %>
+<% end %>
+<%= link_to "New message", new_message_path %>

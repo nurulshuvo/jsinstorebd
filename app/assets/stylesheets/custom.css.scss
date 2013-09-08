@@ -1,5 +1,7 @@
 @import "bootstrap";
-body { padding-top: 60px; }
+body { padding-top: 100px;
+       background-color: #e3e3e3;
+ }
 @import "bootstrap-responsive";
 
 
@@ -31,9 +33,69 @@ textarea {
   width: 75px;
 }
 
-.row-fluid .span4 {
+.mar {
+  float: right !important;
   margin-left: 0;
-  margin-right: 10px;
-  margin-bottom: 5px;
-  padding: 3px;
+  background: #f5f5f5;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #f6f6f9;
+
+}
+
+.search-btn {
+  margin: 7px;
+  border-radius: 20px;
+}
+
+.search-select{
+  border-radius: 30px;
+  margin-top: 7px;
+}
+.src {
+  background-color: #eeeeee;
+  text-align: center;
+}
+
+.product-list{
+  margin: 20px;
+  background: #f5f5f5;
+  padding: 10px;
+}
+
+.new-product {
+  background: orange;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.orange {
+  background: orange;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.margin-left {
+  margin-left: 20px;
+}
+
+.product-show{
+  margin: 20px;
+  background: #f5f5f5;
+  padding: 10px;
+}
+
+.sp{
+  
+  margin-left: 20px;
+  background: #f5f5f5;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.small-img{
+  height: 40px;
+  width: 40px;
 }

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sender_id: MyString
+  recepient_id: MyString
+  sender_deleted: false
+  subject: MyString
+  body: MyText
+  read_at: 2013-08-31 15:51:27
+  container: MyString
+
+two:
+  sender_id: MyString
+  recepient_id: MyString
+  sender_deleted: false
+  subject: MyString
+  body: MyText
+  read_at: 2013-08-31 15:51:27
+  container: MyString
