@@ -18,12 +18,20 @@ test:
   pool: 5
   timeout: 5000
 
+# production:
+#   adapter: mysql2
+#   encoding: utf8
+#   reconnect: false
+#   database: estore_production
+#   pool: 25
+#   username: root
+#   password: estore
+#   socket: /tmp/mysql.sock
+
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: estore_production
-  pool: 25
-  username: root
-  password: estore
-  socket: /tmp/mysql.sock
+  adapter: postgresql
+  encoding: unicode
+  database: blog_development
+  pool: 5
+  username: blog
+  password:
