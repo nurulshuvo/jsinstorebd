@@ -7,6 +7,7 @@
   </ul>
   Total: <%= number_to_currency(@cart.total_price) %>
 
-  <%= button_to 'Checkout', new_order_path, method: :get %>
+  <%#= button_to 'Checkout', new_order_path, method: :get %>
+  <%= link_to "Checkout", @cart.paypal_url(store_url, payment_notifications_url) %>
   <%= button_to 'Empty cart', @cart, method: :delete, confirm: 'Are you sure?' %>
   <%= button_to 'Continue shopping', store_url, method: :get %>

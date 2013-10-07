@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require dataTables/jquery.dataTables
  *= require_tree .
  */
 
@@ -38,7 +39,6 @@
 .stepy-titles li span { font: 11px verdana; display: block; }
 .stepy-titles .current-step { color: #369; cursor: auto; }
 
-/*** Optionaly (jQuery Validate) ***/
 
 .error { background-color: #FAF4F4; }
 

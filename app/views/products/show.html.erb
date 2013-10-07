@@ -1,32 +1,64 @@
-<%= link_to "Meet the owner", user_path(@product.user), class: "orange margin-left" %>
+<div id="product-show-page" >
+
 
 <div class="product-show">
-<p>
-  <b>Title:</b>
-  <%= @product.title %>
-</p>
 
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
-<p>
-  <b>Image:</b>
-  <%#= @product.image %>
+<div id="image">
   <%= image_tag @product.image_url.to_s %>
-</p>
-<%= button_to 'Add to Cart', line_items_path(product_id: @product.id), class: "btn" %>
-<p>
-  Tags: <%= @product.tag_list %>
-</p>
-<%= link_to('Edit', edit_product_path(@product)) if current_user.id == @product.user.id %> |
-<%= link_to 'Back', products_path %> |
+</div>
+
+    <div>
+        
+          <h4><%= @product.title.capitalize %></h4>
+        
+
+        <p>
+          <%= @product.description.capitalize %>
+        </p>
+
+        <p>
+          <b>Price:</b>
+          <%= @product.price %>
+        
+          Tags: <%= @product.tag_list %>
+        </p>
+    </div>
+
+    <div id="product-buttons">
+        <%= link_to 'Add to Cart', line_items_path(product_id: @product.id), class: "btn", method: 'post' %>
+      <%#= link_to "Seller", user_path(@product.user), class: "btn" %>
+      <%= link_to "Message", new_email_message_path(@product.user.email), class: "btn" %>
+
+      <%= link_to('Edit', edit_product_path(@product), class:'btn') if current_user.id == @product.user.id %>
+      <%= link_to 'Report', reports_path(product: @product.id, user: current_user.email), class: "btn", method: 'post' %>
+      <%#= link_to 'Back', products_path, class: 'btn' %>
+
+    </div>
+
 
 </div>
-<%= gmaps4rails(@json) %>
 
+<%= gmaps("markers" => {"data" => @json, "options" => {"auto_zoom" => false} }) %>
+
+</div>
+<%#= gmaps4rails(@json) %>
+
+<span class="clearfix"></span>
+
+
+
+<% content_for :scripts do %>
+    <script type="text/javascript" charset="utf-8">
+      Gmaps.map.callback = function() {
+        if (Gmaps.map.markers.length == 1) {
+         //only one marker, choose the zoom level you expect
+         setTimeout(function() { Gmaps.map.serviceObject.setZoom(8);}, 50);
+        }
+        else{
+         //more than one marker, let's auto_zoom
+         Gmaps.map.map_options.auto_zoom = true;
+         Gmaps.map.adjustMapToBounds();
+        }
+      }
+    </script>
+<% end %>

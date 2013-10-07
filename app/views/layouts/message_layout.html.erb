@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>eStore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%#= stylesheet_link_tag    "mobile" if mobile_device? %>
+  <%= javascript_include_tag  "application" %>
+
+<% if mobile_device? %>
+<%= stylesheet_link_tag     "application", :media => "all" %>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+<% end %>
+
+
+
+
+  <%= csrf_meta_tags %>
+  <%#= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
+</head>
+<body>
+
+  <div id="top-header">
+    <div id="logo"><a href="<%= root_path %>"><h3>eStore</h3></a></div>
+    <div class="container">
+      <div class="row">
+        
+        <div class="span6">
+
+        <div class="search_bar">
+            <%= form_tag store_path, method: :get, id: "form-search" do %>
+                    <%= text_field_tag :search, params[:search], id: "name-search" %>
+
+               <%= select_tag :cat_search, options_for_select(Category.all.map {|obj, id| [obj, obj]}), prompt: "All", class: "selectpicker search-select" %>
+
+               <%= submit_tag "Go", id: 'go' %>
+            <% end %>
+          
+        </div><!--/search-bar-->
+
+        </div> <!--/span6-->
+        <div id="sign-in-up">
+          <% if user_signed_in? %>
+              <p class="navbar-text pull-right">
+                 <a href="#" class="navbar-link"><strong><%= current_user.email %></strong></a> /
+                 <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+              </p>
+            <% else %>
+              <p class="navbar-text pull-right">
+                <%= link_to 'Sign up', new_user_registration_path %> /
+                <%= link_to 'Sign in', new_user_session_path %>
+              </p>
+            <% end %>
+        </div>
+      </div> <!--/row-->
+
+    </div> <!--/container-->
+    <div class="top-border"></div>
+  </div> <!--top header-->
+
+<% if notice %>
+  <p id="notice" ><%= notice %></p>
+<% end %>
+
+
+  <div class="main-part">
+    <div class="span3 sidebar-nav goleft">
+      <div id="message-box">
+        <ul>
+          <li><%= link_to "Compose message", new_message_path %></li>
+          <li><%= link_to "Inbox", messages_path %></li>
+          <li><%= link_to "Outbox", outbox_path %></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="msg" >
+      <%= yield %>
+    </div> <!--/advanced-search-->
+  </div> <!--/main-part-->
+<div class="clearfix"></div>
+
+
+
+
+
+<script src="js/jquery-ui.js"></script>
+
+  <script type="text/javascript">
+      $("#searchDropdownBox").change(function(){
+2
+  var Search_Str = $(this).val();
+3
+  //replace search str in span value
+4
+  $("#nav-search-in-content").text(Search_Str);
+5
+});
+
+      $('#side-nav').accordion();
+  </script>
+
+
+
+<%= yield :scripts %>
+
+</div>
+
+<%= debug(params) if Rails.env.development? %>
+
+
+<a href="#" 
+  onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+      'facebook-share-dialog', 
+      'width=626,height=436'); 
+    return false;">
+  Share on Facebook
+</a>
+</body>
+</html>

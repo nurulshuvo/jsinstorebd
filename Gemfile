@@ -15,10 +15,11 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass'
+  gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 end
 
 group :production do
-  gem 'pg'
+  gem 'mysql2'
 end
 
 gem "jquery-rails", "~> 2.3.0"
@@ -36,4 +37,4 @@ gem 'mobylette', ">= 1.4.2"
 gem 'acts-as-taggable-on'
 gem 'acts-as-messageable'
 gem 'activeadmin'
-gem 'stripe'
+# gem 'stripe'

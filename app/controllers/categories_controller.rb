@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
     @categories = Category.all
 
     respond_to do |format|
-      format.html 
+      format.html
       format.json { render json: @categories }
     end
   end
@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     respond_to do |format|
-      format.html 
+      format.html
       format.json { render json: @category }
     end
   end
@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
     @category = Category.new
 
     respond_to do |format|
-      format.html 
+      format.html
       format.json { render json: @category }
     end
   end

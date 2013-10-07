@@ -1,74 +1,75 @@
 <div class="container-fluid">
-<div class="row-fluid">
-<div class="span3">
-<div class="well sidebar-nav">
-
-  <ul class="nav nav-list">
-  <% Category.roots.each do |category| %>
-    <li><%= link_to category.name, category: category %></li>
-    <ul>
-      <% category.children.each do |sub_cat|%>
-        <li><%= link_to_unless_current sub_cat.name, category: sub_cat %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</ul>
-
-</div><!--/.well -->
-</div><!--/span-->
+<div >
 
 <div class="span9" id="product">
 
-<%= gmaps4rails(@json) %>
+<%#= gmaps4rails(@json) %>
 
-<h2>Product Catalog</h2>
-<p class="alert">Please Note: As it is a test and free hosting, uploaded image would not be shown more than 24 hours</p>
 <hr>
 
 <% if current_user %>
-<% @location = Product.new(address: "#{current_user.address}", latitude: "#{current_user.latitude}", longitude: "#{current_user.longitude}") %>
+  <% @location = Product.new(address: "#{current_user.address}", latitude: "#{current_user.latitude}", longitude: "#{current_user.longitude}") %>
 
 
 
-  <% if params[:category] || params[:search] || params[:cat_search] %>
-    
-
-    <div class="row-fluid">
+    <% if params[:category] || params[:search] || params[:cat_search] %>
       
-  <% @products.each do |product| %>
-    <div class="span12 mar">
-      <h3><%= link_to product.title.titleize, product_path(product) %></h3>
-      <p><%= product.address %></p>
-      <%= image_tag product.image_url.to_s %>
-      <p><%= sanitize product.description %> </p>
-      <span class="price" >Price: <%= number_to_currency(product.price) %></span>
-      <%= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn" %>
-      <%= link_to "Send a message to the owner", new_email_message_path(product.user.email) %>
-    </div><!--/span-->
-  <% end %>
-  
 
-  <% end %>
+        <div>
+          
+          <% @products.each do |product| %>
+            <div class="span4 box">
+              <h4><%= link_to product.title.titleize, product_path(product) %></h4>
+              <p><%= product.address %></p>
+              <%= image_tag product.image_url.to_s %>
+              <p><%= sanitize product.description %> </p>
+              <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+              <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn" %>
+              <%= link_to "Send a message to the owner", new_email_message_path(product.user.email) %>
+            </div><!--/span-->
+          <% end %>
+          
 
-</div><!--/span-->
-</div><!--/row-->
+    <% end %>
+
+  <div>
+      <h4 style="margin-left: 28px;">Electronics</h4>
+    <% @electronic_products.each do |product| %>
+      <div class="span4 box">
+        <h4><%= link_to product.title.titleize, product_path(product) %></h4>
+        <p><%= product.address %></p>
+        <%= image_tag product.image_url.to_s %>
+        <p><%= sanitize product.description %> </p>
+        <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+        <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
+      </div><!--/span-->
+    <% end %>
+    
+  </div><!--/row-->
+  </div><!--/span-->
+  </div><!--/row-->
+
+
+
 <% else %>
-<p class='alert'>Please Sign in for a better experience</p>
-<div class="row-fluid">
-  
-  <% @products.each do |product| %>
-    <div class="span12 mar">
-      <h3><%= link_to product.title.titleize, product_path(product) %></h3>
-      <p><%= product.address %></p>
-      <%= image_tag product.image_url.to_s %>
-      <p><%= sanitize product.description %> </p>
-      <span class="price" >Price: <%= number_to_currency(product.price) %></span>
-      <%= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
-    </div><!--/span-->
-  <% end %>
-  
-</div><!--/row-->
-</div><!--/span-->
-</div><!--/row-->
+
+  <p class='alert'>Please Sign in for a better experience</p>
+  <div>
+    <h4 style="margin-left: 28px;">Electronics</h4>
+    <% @electronic_products.each do |product| %>
+      <div class="span4 box">
+        <h4><%= link_to product.title.titleize, product_path(product) %></h4>
+        <p><%= product.address %></p>
+        <%= image_tag product.image_url.to_s %>
+        <p><%= sanitize product.description %> </p>
+        <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+        <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
+      </div><!--/span-->
+    <% end %>
+    
+  </div><!--/row-->
+  </div><!--/span-->
+  </div><!--/row-->
+
 
 <% end %>

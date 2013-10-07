@@ -3,9 +3,9 @@
 <head>
   <title>eStore</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "https://js.stripe.com/v1", "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%#= stylesheet_link_tag    "mobile" if mobile_device? %>
-  <%= javascript_include_tag "https://js.stripe.com/v1", "application" %>
+  <%= javascript_include_tag  "application" %>
 
 <% if mobile_device? %>
 <%= stylesheet_link_tag     "application", :media => "all" %>
@@ -18,29 +18,110 @@
 
 
   <%= csrf_meta_tags %>
-  <%= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
+  <%#= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
 </head>
 <body>
-<div data-theme="b" class="ui-page-active" data-role="page">
-<%= render 'layouts/nav'%>
+
+  <div id="top-header">
+    <div id="logo"><a href="<%= root_path %>"><h3>eStore</h3></a></div>
+    <div class="container">
+      <div class="row">
+        
+        <div class="span6">
+
+        <div class="search_bar">
+            <%= form_tag store_path, method: :get, id: "form-search" do %>
+                    <%= text_field_tag :search, params[:search], id: "name-search" %>
+
+               <%= select_tag :cat_search, options_for_select(Category.all.map {|obj, id| [obj, obj]}), prompt: "All", class: "selectpicker search-select" %>
+
+               <%= submit_tag "Go", id: 'go' %>
+            <% end %>
+          
+        </div><!--/search-bar-->
+
+        </div> <!--/span6-->
+        <div id="sign-in-up">
+          <% if user_signed_in? %>
+              <p class="navbar-text pull-right">
+                 <a href="#" class="navbar-link"><strong><%= current_user.email %></strong></a> /
+                 <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+              </p>
+            <% else %>
+              <p class="navbar-text pull-right">
+                <%= link_to 'Sign up', new_user_registration_path %> /
+                <%= link_to 'Sign in', new_user_session_path %>
+              </p>
+            <% end %>
+        </div>
+      </div> <!--/row-->
+
+    </div> <!--/container-->
+    <div class="top-border"></div>
+  </div> <!--top header-->
+
 <% if notice %>
   <p id="notice" ><%= notice %></p>
 <% end %>
 
+
+  <div class="main-part">
+    <div class="span3 sidebar-nav goleft">
+      <h4 style="padding-left: 20px;background: #b2b2b2;">Categories:</h4>
+      <div id="side-nav">
+        <% Category.roots.each do |category| %>
+
+        <h3><%= link_to category.name, category: category %></h3>
+        <div>
+          <ul>
+            <% category.children.each do |sub_cat|%>
+            <li><%= link_to_unless_current sub_cat.name, category: sub_cat %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <% end %>
+      </div>
+    </div>
+</div> <!--/main-part-->
+
 <%= yield %>
 
-      <hr>
 
-      <footer>
-        <p>&copy; eStore 2013</p>
-      </footer>
 
-    </div><!--/.fluid-container-->
+<script src="js/jquery-ui.js"></script>
+
+  <script type="text/javascript">
+      $("#searchDropdownBox").change(function(){
+2
+  var Search_Str = $(this).val();
+3
+  //replace search str in span value
+4
+  $("#nav-search-in-content").text(Search_Str);
+5
+});
+
+      $('#side-nav').accordion();
+  </script>
+
+
 
 <%= yield :scripts %>
 
 </div>
 
 <%= debug(params) if Rails.env.development? %>
+
+
+<a href="#" 
+  onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+      'facebook-share-dialog', 
+      'width=626,height=436'); 
+    return false;">
+  Share on Facebook
+</a>
 </body>
 </html>

@@ -1,4 +1,10 @@
 Jsinstorebd::Application.routes.draw do
+  resources :reports, only: :create
+
+
+  resources :payment_notifications, only: :create
+
+
 root to: 'store#index', as: 'store'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -36,6 +42,7 @@ match 'messages/new/:email' => 'messages#new', as: :new_email_message
 match 'messages/create' => 'messages#create', as: :create_message
 match 'messages/show/:id' => 'messages#show', as: :message
 match 'messages/delete/:id' => 'messages#destroy', as: :delete_message
+match 'messages/outbox' => 'messages#outbox', as: :outbox
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
