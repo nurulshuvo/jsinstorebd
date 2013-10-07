@@ -37,4 +37,5 @@ gem 'mobylette', ">= 1.4.2"
 gem 'acts-as-taggable-on'
 gem 'acts-as-messageable'
 gem 'activeadmin'
-# gem 'stripe'
+
+gem 'capistrano'
