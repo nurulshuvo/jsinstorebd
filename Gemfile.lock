@@ -67,7 +67,7 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
-    capistrano (2.15.5)
+    capistrano (2.14.2)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -168,8 +168,6 @@ GEM
       json (~> 1.4)
     responders (1.0.0.rc)
       railties (>= 3.2, < 5)
-    rvm-capistrano (1.5.0)
-      capistrano (>= 2.15.4)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -208,7 +206,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
-  capistrano
+  capistrano (~> 2.14.2)
   carrierwave
   coffee-rails (~> 3.2.1)
   devise
@@ -219,7 +217,6 @@ DEPENDENCIES
   mobylette (>= 1.4.2)
   mysql2
   rails (= 3.2.13)
-  rvm-capistrano
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
