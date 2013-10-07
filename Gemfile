@@ -39,3 +39,4 @@ gem 'acts-as-messageable'
 gem 'activeadmin'
 
 gem 'capistrano'
+gem 'unicorn'
