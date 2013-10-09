@@ -44,7 +44,7 @@
         <div id="sign-in-up">
           <% if user_signed_in? %>
               <p class="navbar-text pull-right">
-                 <a href="#" class="navbar-link"><strong><%= current_user.email %></strong></a> /
+                 <a href="#" class="navbar-link"><strong><%= link_to current_user.email, user_path(current_user) %></strong></a> /
                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
               </p>
             <% else %>
@@ -87,7 +87,7 @@
 
 <%= yield %>
 
-
+<span class="clearfix"></span>
 
 <script src="js/jquery-ui.js"></script>
 
@@ -109,19 +109,11 @@
 
 <%= yield :scripts %>
 
-</div>
+
 
 <%= debug(params) if Rails.env.development? %>
 
 
-<a href="#" 
-  onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
-      'facebook-share-dialog', 
-      'width=626,height=436'); 
-    return false;">
-  Share on Facebook
-</a>
+
 </body>
 </html>

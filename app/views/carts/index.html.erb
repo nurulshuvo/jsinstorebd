@@ -1,21 +1,25 @@
-<h1>Listing carts</h1>
+<div id="profile-page">
 
-<table>
+<table id="cart">
+  <thead>
   <tr>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @carts.each do |cart| %>
   <tr>
+    <td><%= cart.id %></td>
     <td><%= link_to 'Show', cart %></td>
-    <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-    <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Cart', new_cart_path %>
+</div>
+

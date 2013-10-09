@@ -22,7 +22,7 @@
               <h4><%= link_to product.title.titleize, product_path(product) %></h4>
               <p><%= product.address %></p>
               <%= image_tag product.image_url.to_s %>
-              <p><%= sanitize product.description %> </p>
+              
               <span class="price" >Price: <%= number_to_currency(product.price) %></span>
               <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn" %>
               <%= link_to "Send a message to the owner", new_email_message_path(product.user.email) %>
@@ -39,7 +39,7 @@
         <h4><%= link_to product.title.titleize, product_path(product) %></h4>
         <p><%= product.address %></p>
         <%= image_tag product.image_url.to_s %>
-        <p><%= sanitize product.description %> </p>
+        
         <span class="price" >Price: <%= number_to_currency(product.price) %></span>
         <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
       </div><!--/span-->
@@ -61,7 +61,7 @@
         <h4><%= link_to product.title.titleize, product_path(product) %></h4>
         <p><%= product.address %></p>
         <%= image_tag product.image_url.to_s %>
-        <p><%= sanitize product.description %> </p>
+        
         <span class="price" >Price: <%= number_to_currency(product.price) %></span>
         <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
       </div><!--/span-->

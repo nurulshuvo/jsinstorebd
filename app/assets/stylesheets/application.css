@@ -35,7 +35,7 @@
 .error-image { background: url('../img/error.png') no-repeat right top; }
 
 .stepy-titles { list-style: none; margin: 0; padding: 0; width: 100%; }
-.stepy-titles li { color: #DDD; cursor: pointer; font: bold 18px verdana; float: left; padding: 10px; }
+.stepy-titles li { color: #a19d94; cursor: pointer; font: bold 18px verdana; float: left; padding: 10px; }
 .stepy-titles li span { font: 11px verdana; display: block; }
 .stepy-titles .current-step { color: #369; cursor: auto; }
 
@@ -43,3 +43,38 @@
 .error { background-color: #FAF4F4; }
 
 label.error { background: url('../img/alert.png') no-repeat; color: #DE5130; display: block; float: left; font: 10px verdana; height: 13px; margin: 3px 3px 0 10px; padding-left: 21px; padding-top: 2px; }
+
+.edit_product, .new_product {
+  position: relative;
+  left: 30px;
+  top: 30px;
+}
+.edit_product textarea, .new_product textarea{
+  height: 100px;
+  width: 208px;
+}
+fieldset{
+  position: absolute;
+  top: 57px;
+}
+
+.step{
+  height: 374px;
+}
+
+.edit_product .button-back, .new_product .button-back{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.edit_product .button-next, .new_product .button-next{
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+}
+.edit_product .finish, .new_product .finish{
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+}

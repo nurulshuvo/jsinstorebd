@@ -19,6 +19,7 @@ root to: 'store#index', as: 'store'
   ActiveAdmin.routes(self)
 
   match 'users/:id' => 'users#show', as: :user
+  match 'profile/:id' => 'users#profile', as: :profile
 
   resources :users do
     resources :products
