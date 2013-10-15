@@ -76,6 +76,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(store_url, notice: 'Your cart is currently empty') }
+      format.mobile { redirect_to(store_url, notice: 'Your cart is currently empty') }
       format.json { head :no_content }
     end
   end

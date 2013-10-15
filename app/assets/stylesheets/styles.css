@@ -369,7 +369,6 @@ margin-left: 20px;
   border-top: 1px solid #e0e0e0;
   width: 100%;
   position: relative;
-  bottom: 20px;
 }
 
 .product-show{
@@ -563,4 +562,17 @@ box-shadow: 0px 0px 5px #000000;
   text-decoration: none;
   background: none;
   color: #28d3db;
+ }
+
+ .fb_share{
+  margin-left:5px;
+  margin-top: 5px;
+  padding:2px 4px 3px;
+  background: #8077e8;
+  border-radius: 4px;
+ }
+
+ .new-product{
+  position: relative;
+  bottom: 10px;
  }

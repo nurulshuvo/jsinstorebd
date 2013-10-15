@@ -56,8 +56,22 @@
         </div>
       </div> <!--/row-->
 
+      <div class="row top-border">
+        <ul class="nav inline">
+        <li><%= link_to "Advanced Search", new_search_path %></li>
+        <li><%= link_to "Home", root_path %></li>
+        <% if current_user %>
+        <li><%= link_to "Dashboard", user_path(current_user) %></li>
+
+        <li><%= link_to "Profile", profile_path(current_user) %></li>
+        <li><%= link_to "My Products", products_path %></li>
+        <li><%= link_to "Inbox", messages_path %></li>
+        <% end %>
+        </ul>
+      </div>
+
     </div> <!--/container-->
-    <div class="top-border"></div>
+    
   </div> <!--top header-->
 
 <% if notice %>
@@ -102,7 +116,7 @@
 5
 });
 
-      $('#side-nav').accordion();
+      $('#side-nav').accordion({collapsible: true, active: false});
   </script>
 
 

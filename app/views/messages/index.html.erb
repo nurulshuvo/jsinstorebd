@@ -1,11 +1,11 @@
 <table id="messages">
-    <thead>
+  <thead>
     <tr>
       <th>Subject</th>
       <th></th>
     </tr>
-    </thead>
-    <tbody>
+  </thead>
+  <tbody>
     <% @messages.each do |m| %>
       <tr>
         <td><%= link_to m.topic, message_path(m) %></td>

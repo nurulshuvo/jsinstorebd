@@ -1,5 +1,9 @@
 <div id="product-show-page" >
 
+<div id="fb-root"></div><!-- required by facebook -->
+<%= link_to 'Share on Facebook', '#', :class => "fb_share"  %>
+<%= facebook_share_once %>
+
 
 <div class="product-show">
 
@@ -63,3 +67,5 @@
       }
     </script>
 <% end %>
+
+

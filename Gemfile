@@ -34,6 +34,7 @@ gem 'devise'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'ancestry'
+gem 'facebook_share'
 
 gem 'mobylette', ">= 1.4.2"
 

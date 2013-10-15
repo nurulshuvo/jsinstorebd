@@ -23,3 +23,7 @@ jQuery ->
     else
       $('#product_thana').empty()
       $('#product_thana').parent().hide()
+
+
+jQuery ->
+  $('#product-table').dataTable()
