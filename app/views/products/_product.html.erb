@@ -1,9 +1,13 @@
-<div class="product">
-  <h2><%= link_to product.title, product %></h2>
+
+
+<div class="product span4 box">
+  <h4><%= link_to product.title, product %></h4>
   <div class="details">
-    <%= number_to_currency(product.price) %>
+    <%= image_tag product.image_url.to_s%>
+    price: <%= number_to_currency(product.price) %>
     <% if product.category %>
       | Category: <%= product.category.name %>
     <% end %>
   </div>
 </div>
+

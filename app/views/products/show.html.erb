@@ -38,14 +38,15 @@
 
 </div>
 
+
+
+
 <%= gmaps("markers" => {"data" => @json, "options" => {"auto_zoom" => false} }) %>
 
 </div>
 <%#= gmaps4rails(@json) %>
 
 <span class="clearfix"></span>
-
-
 
 <% content_for :scripts do %>
     <script type="text/javascript" charset="utf-8">

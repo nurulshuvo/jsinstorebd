@@ -8,7 +8,7 @@ class Search < ActiveRecord::Base
   private
 
   def find_products
-    products = Product.order(:title)
+    products ||= Product.order(:title)
     products = products.tagged_with(tag.split(','), any: true) if tag.present?
     products = products.where("title like ?", "%#{keywords}%") if keywords.present?
     products = products.where(category_id: category_id) if category_id.present?

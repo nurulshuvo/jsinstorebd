@@ -3,9 +3,9 @@
 <head>
   <title>eStore</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "https://js.stripe.com/v1", "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%#= stylesheet_link_tag    "mobile" if mobile_device? %>
-  <%= javascript_include_tag "https://js.stripe.com/v1", "application" %>
+  <%= javascript_include_tag  "application" %>
 
 <% if mobile_device? %>
 <%= stylesheet_link_tag     "application", :media => "all" %>
@@ -65,6 +65,7 @@
 
   <div class="main-part">
     <div class="span3 sidebar-nav goleft">
+      <div class="hide-on-search">
       <h4 style="padding-left: 20px;background: #b2b2b2;">Categories:</h4>
       <div id="side-nav">
         <% Category.roots.each do |category| %>
@@ -80,10 +81,55 @@
 
         <% end %>
       </div>
+
+      </div> <!--/hide-on-search-->
+
+      <div class="hidden filter">
+        <h4 style="padding-left: 20px;background: #b2b2b2;">Filter Products:</h4>
+        <div>
+          <%= form_tag store_path, method: :get do %>
+            <%= label_tag :search, 'Name:'%>
+            <%= text_field_tag :search, params[:search] %>
+            <%= label_tag :cat_search, 'Category:'%>
+            <%= select_tag :cat_search, options_for_select(Category.all.map {|obj, id| [obj, obj]}), prompt: "All" %>
+
+            <%= label_tag :price, "Price:"%>
+            <%= radio_button_tag :price, "1-300", params[:price], checked: false %> 1-300$<br>
+            <%= radio_button_tag :price, "301-1000", params[:price], checked: false %> 301-1000$ <br>
+            <%= radio_button_tag :price, "1001-2000", params[:price], checked: false %> 1001-2000$ <br>
+            <%= label_tag :location, "Location:" %>
+            <%= select_tag :location, options_for_select(Division.all), prompt: "Division" %>
+
+            <%= submit_tag "Search" %>
+          <% end %>
+          
+        </div><!--/search-bar-->
+      </div>
     </div>
 
 
-    <%= gmaps4rails(@json) %>
+
+  <%= gmaps("markers" => {"data" => @json, "options" => {"auto_zoom" => false} }) %>
+
+
+    <% content_for :scripts do %>
+    <script type="text/javascript" charset="utf-8">
+      Gmaps.map.callback = function() {
+        if (Gmaps.map.markers.length == 1) {
+         //only one marker, choose the zoom level you expect
+         setTimeout(function() { Gmaps.map.serviceObject.setZoom(8);}, 50);
+        }
+        else{
+         //more than one marker, let's auto_zoom
+         Gmaps.map.map_options.auto_zoom = true;
+         Gmaps.map.adjustMapToBounds();
+        }
+      }
+    </script>
+<% end %>
+
+
+
   </div> <!--/main-part-->
 
 <%= yield %>
@@ -92,13 +138,13 @@
 
   <script type="text/javascript">
       $("#searchDropdownBox").change(function(){
-2
+
   var Search_Str = $(this).val();
-3
+
   //replace search str in span value
-4
+
   $("#nav-search-in-content").text(Search_Str);
-5
+
 });
 
       $('#side-nav').accordion();

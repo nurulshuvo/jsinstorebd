@@ -369,3 +369,23 @@
 	};
 
 })(jQuery);
+
+
+
+// Search hide
+
+$(function(){
+	// var url = document.URL;
+	var search = document.URL.split('&')[1];
+	var cat_search = document.URL.split('&')[2];
+	// var commit = document.URL.split('&')[3];
+	// $('#go').click(function(){
+	// 	alert('hah');
+	// })
+if (search || cat_search){
+	$('.hide-on-search').addClass('hide');
+	$('.hidden').removeClass('hidden');
+}
+
+
+});

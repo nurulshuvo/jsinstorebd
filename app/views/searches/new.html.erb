@@ -1,28 +1,38 @@
-<h1>Advanced Search</h1>
+<div id="advanced-search-box">
+<h4>Advanced Search</h4>
 
 <%= form_for @search, html: {class: "src"} do |f| %>
+<div id="sleft">
   <div class="field">
-    <%= f.label :keywords %> <br>
+    <%= f.label :keywords, "keywords:" %>
     <%= f.text_field :keywords %>
   </div>
 
   <div class="field">
-    <%= f.label :tag, "Tag (seperated by comma)" %> <br>
+    <%= f.label :tag, "Tag (seperated by comma):" %>
     <%= f.text_field :tag, data: { autocomplete_source: auto_tag} %>
   </div>
 
   <div class="field">
-    <%= f.label :category_id, "Category" %>
+    <%= f.label :category_id, "Category:" %>
     <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true %>
   </div>
+  </div>
 
+  <div id="sright">
   <div class="field">
-    <%= f.label :min_price, "Price Range" %> <br>
-    <%= f.text_field :min_price, size: 10 %> - 
+    
+    <%= f.label :min_price, "Minimum Price:" %>
+    <%= f.text_field :min_price, size: 10 %>
+    <%= f.label :max_price, "Maximum Price:" %>
     <%= f.text_field :max_price, size: 10 %>
   </div>
 
   <div class="actions">
     <%= f.submit "Search" %>
   </div>
+
+  </div>
 <% end %>
+
+</div>
