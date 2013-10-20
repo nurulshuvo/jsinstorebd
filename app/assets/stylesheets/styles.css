@@ -576,3 +576,13 @@ box-shadow: 0px 0px 5px #000000;
   position: relative;
   bottom: 10px;
  }
+
+ .ads{
+  position: relative;
+  left: 740px;
+  top: -61px;
+ }
+
+ .header-row{
+  height: 50px;
+ }

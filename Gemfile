@@ -31,6 +31,7 @@ gem 'carrierwave'
 
 
 gem 'devise'
+
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'ancestry'

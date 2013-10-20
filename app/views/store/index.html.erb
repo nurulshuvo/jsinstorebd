@@ -8,6 +8,7 @@
 <hr>
 
   <div>
+    <div class="hide-on-search">
     <h4 style="margin-left: 28px;">Electronics</h4>
     <% @electronic_products.each do |product| %>
       <div class="span4 box">
@@ -19,7 +20,7 @@
         <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
       </div><!--/span-->
     <% end %>
-    
+    </div>
 
 
 

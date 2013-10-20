@@ -25,7 +25,7 @@
   <div id="top-header">
     <div id="logo"><a href="<%= root_path %>"><h3>eStore</h3></a></div>
     <div class="container">
-      <div class="row">
+      <div class="row header-row">
         
         <div class="span6">
 
@@ -39,7 +39,7 @@
             <% end %>
           
         </div><!--/search-bar-->
-
+<%= link_to "Advanced Search", new_search_path, class: 'btn ads' %>
         </div> <!--/span6-->
         <div id="sign-in-up">
           <% if user_signed_in? %>
@@ -60,9 +60,9 @@
         <li><%= link_to "Advanced Search", new_search_path %></li>
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
-        <li><%= link_to "Dashboard", user_path(current_user) %></li>
+        <li><%= link_to "Profile", user_path(current_user) %></li>
 
-        <li><%= link_to "Profile", profile_path(current_user) %></li>
+        <li><%#= link_to "Profile", profile_path(current_user) %></li>
         <li><%= link_to "My Products", products_path %></li>
         <li><%= link_to "Inbox", messages_path %></li>
         <% end %>
