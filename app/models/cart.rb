@@ -17,7 +17,7 @@ class Cart < ActiveRecord::Base
   end
 
   def to_s
-    self.user
+    self.id
   end
 
 def paypal_url(return_url, notify_url)
