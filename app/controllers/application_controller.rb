@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :prepare_for_mobile
 
+
   private
     def current_cart
     if session[:cart_id]

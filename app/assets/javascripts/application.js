@@ -385,7 +385,16 @@ $(function(){
 if (search || cat_search){
 	$('.hide-on-search').addClass('hide');
 	$('.hidden').removeClass('hidden');
+	$('.filter2').addClass('hidden');
 }
+});
 
+$(function(){
+	// $('table:last, td:nth-child(2)').
+ //  css("background-color", "#cccccc");
 
+ //  $('table:last, td:nth-child(2)').
+ //  css("background-color", "#F4F5F5");
+  $(".odd").css("background-color", "#cccccc")
+  $(".even").css("background-color", "#F4F5F5")
 });

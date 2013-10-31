@@ -1,4 +1,4 @@
-<div id="profile-page">
+<div id="msg" >
 <%#= link_to 'New Product', new_product_path, class: "new-product" %>
 
 <table id="product-table">
@@ -15,7 +15,7 @@
   <tbody>
 <% @products.each do |product| %>
 <tr>
-<td><%= product.title %></td>
+<td><strong><%= product.title %></strong></td>
 <td><%= product.description %></td>
 <td><%= product.price %></td>
 <td><%= link_to 'Show', product %></td>

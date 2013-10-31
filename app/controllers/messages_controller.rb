@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
   def show
     # @message = current_user.messages.find(params[:id])
     @message = current_user.received_messages.find(params[:id])
+    @message.open
   end
 
   def destroy

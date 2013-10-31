@@ -1,6 +1,9 @@
+<h5>From</h5>
+<h6><%= @message.from %></h6>
 <h5>Subject</h5>
 <h6><%= @message.topic %></h6>
 <h5>Message</h5>
 <p><%= @message.body %></p>
 
+<%= link_to "Reply", new_email_message_path(@message.from.email ), class: "btn" %>
 <%= button_to("Delete message", delete_message_path(@message))%>

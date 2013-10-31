@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-group :development do
-  gem 'rvm-capistrano'
-end
+# group :development do
+#   gem 'rvm-capistrano'
+# end
 group :development, :test do
   gem 'sqlite3'
   gem "better_errors"
@@ -42,6 +42,7 @@ gem 'mobylette', ">= 1.4.2"
 gem 'acts-as-taggable-on'
 gem 'acts-as-messageable'
 gem 'activeadmin'
+gem 'letsrate'
 
-gem 'capistrano', '~> 2.14.2'
-gem 'unicorn'
+# gem 'capistrano', '~> 2.14.2'
+# gem 'unicorn'

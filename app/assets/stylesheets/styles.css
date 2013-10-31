@@ -43,7 +43,7 @@
   height: auto;
   float: left;
   position: relative;
-  margin-left: 213px;
+  margin-left: 180px;
   /*left:-17px;*/
 
 }
@@ -387,6 +387,11 @@ margin-left: 20px;
   float: left;
 }
 
+.product-show #image img{
+  width: 200px;
+  height: auto;
+}
+
 
 #product-show-page{
   background: -webkit-linear-gradient(-90deg, #efefef, #dfe1e2) repeat scroll 0% 0% transparent;
@@ -424,7 +429,7 @@ box-shadow: 0px 0px 5px #000000;
 #product-show-page .map_container{
   width: 454px;
   position: absolute;
-  top: 300px;
+  top: 361px;
   left: 558px;
 }
 #product-show-page .map_container #map{
@@ -534,6 +539,10 @@ box-shadow: 0px 0px 5px #000000;
  }
 
 
+.filter2{
+  padding-left: 20px;
+ }
+
  #advanced-search-box{
   background: -webkit-linear-gradient(-90deg, #efefef, #dfe1e2) repeat scroll 0% 0% transparent;
   background: -moz-linear-gradient(-90deg, #efefef, #dfe1e2) repeat scroll 0% 0% transparent;
@@ -567,11 +576,14 @@ box-shadow: 0px 0px 5px #000000;
  .fb_share{
   margin-left:5px;
   margin-top: 5px;
-  padding:2px 4px 3px;
-  background: #8077e8;
-  border-radius: 4px;
+  /*padding:2px 4px 3px;*/
+  /*background: #8077e8;*/
+  /*border-radius: 4px;*/
  }
-
+.fb_share img{
+  height: 45px;
+  width: auto;
+}
  .new-product{
   position: relative;
   bottom: 10px;
@@ -579,10 +591,51 @@ box-shadow: 0px 0px 5px #000000;
 
  .ads{
   position: relative;
-  left: 740px;
+  left: 711px;
   top: -61px;
  }
 
  .header-row{
   height: 50px;
  }
+
+ .inline {
+  position: relative;
+  right: 392px;
+ }
+
+ #cart_img{
+  height: 40px;
+  width: 48px;
+  display: inline;
+  float: left;
+ }
+
+ #cart_link, #cart_img{
+  position: relative;
+  left: 583px;
+  top: 26px;
+ }
+
+ .navbar-text{
+  position: relative;
+  left: 60px;
+ }
+
+ .hei{
+  height: 1000px;
+ }
+
+.box img{
+  height: 100px;
+  width: auto;
+}
+
+.box h4{
+  margin-top: 0;
+  /*padding-top: 0;*/
+}
+
+a:visited{
+  color: black;
+}

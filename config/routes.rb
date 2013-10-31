@@ -1,8 +1,10 @@
 Jsinstorebd::Application.routes.draw do
+  match '/rate' => 'rater#create', :as => 'rate'
+
   resources :reports, only: :create
 
 
-  resources :payment_notifications, only: :create
+  resources :payment_notifications, except: [:show, :new]
 
 
 root to: 'store#index', as: 'store'

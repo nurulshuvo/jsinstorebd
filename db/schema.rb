@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131005183454) do
+ActiveRecord::Schema.define(:version => 20131031181232118) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(:version => 20131005183454) do
     t.string   "title"
     t.text     "description"
     t.decimal  "price"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "image"
     t.string   "address"
     t.float    "latitude"
@@ -130,7 +130,33 @@ ActiveRecord::Schema.define(:version => 20131005183454) do
     t.boolean  "gmaps"
     t.integer  "user_id"
     t.integer  "category_id"
+    t.boolean  "sold",        :default => false
   end
+
+  create_table "rates", :force => true do |t|
+    t.integer  "rater_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.float    "stars",         :null => false
+    t.string   "dimension"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"
+  add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
+
+  create_table "rating_caches", :force => true do |t|
+    t.integer  "cacheable_id"
+    t.string   "cacheable_type"
+    t.float    "avg",            :null => false
+    t.integer  "qty",            :null => false
+    t.string   "dimension"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "rating_caches", ["cacheable_id", "cacheable_type"], :name => "index_rating_caches_on_cacheable_id_and_cacheable_type"
 
   create_table "reports", :force => true do |t|
     t.string   "topic"

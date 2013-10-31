@@ -3,13 +3,18 @@
     <tr>
       <th>Subject</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @messages.each do |m| %>
       <tr>
         <td><%= link_to m.topic, message_path(m) %></td>
-      
+        <% if !m.opened %>
+        <td>New</td>
+        <% else %>
+          <td>Old</td>
+        <% end %>
         <td><%= link_to "Delete", delete_message_path(m) %></td>
       </tr>
     <% end %>

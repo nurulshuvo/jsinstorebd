@@ -24,6 +24,9 @@
 
   <div id="top-header">
     <div id="logo"><a href="<%= root_path %>"><h3>eStore</h3></a></div>
+<% if current_user && session[:cart_id] %>
+    <%= link_to(image_tag("cart.png", id:"cart_img"), cart_path(session[:cart_id]), id: "cart_link") %>
+<% end %>
     <div class="container">
       <div class="row header-row">
         
@@ -58,7 +61,6 @@
 
       <div class="row top-border">
         <ul class="nav inline">
-        <li><%= link_to "Advanced Search", new_search_path %></li>
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
         <li><%= link_to "Profile", user_path(current_user) %></li>

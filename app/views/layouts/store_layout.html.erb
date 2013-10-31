@@ -23,6 +23,10 @@
 <body>
   <div id="top-header">
     <div id="logo"><a href="<%= root_path %>"><h3>eStore</h3></a></div>
+<% if current_user && session[:cart_id] %>
+    <%= link_to(image_tag("cart.png", id:"cart_img"), cart_path(session[:cart_id]), id: "cart_link") %>
+<% end %>
+    
     <div class="container">
       <div class="row header-row">
         
@@ -56,7 +60,6 @@
 
       <div class="row top-border">
         <ul class="nav inline">
-        <li><%= link_to "Advanced Search", new_search_path %></li>
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
         <li><%= link_to "Profile", user_path(current_user) %></li>
@@ -70,6 +73,8 @@
 
     </div> <!--/container-->
     
+
+
   </div> <!--top header-->
 
 <% if notice %>
@@ -97,6 +102,28 @@
 
       </div> <!--/hide-on-search-->
 
+      <div class="filter2">
+        <h4 style="padding-left: 20px;background: #b2b2b2;">Filter Products:</h4>
+        <div>
+          <%= form_tag store_path, method: :get do %>
+            <%= label_tag :search, 'Name:'%>
+            <%= text_field_tag :search, params[:search] %>
+            <%= label_tag :cat_search, 'Category:'%>
+            <%= select_tag :cat_search, options_for_select(Category.all.map {|obj, id| [obj, obj]}), prompt: "All" %>
+
+            <%= label_tag :price, "Price:"%>
+            <%= radio_button_tag :price, "1-300", params[:price], checked: false %> 1-300<br>
+            <%= radio_button_tag :price, "301-1000", params[:price], checked: false %> 301-1000 <br>
+            <%= radio_button_tag :price, "1001-2000", params[:price], checked: false %> 1001-2000 <br>
+            <%= label_tag :location, "Location:" %>
+            <%= select_tag :location, options_for_select(Division.all), prompt: "Division" %>
+
+            <%= submit_tag "Search" %>
+          <% end %>
+          
+        </div><!--/search-bar-->
+      </div>
+
       <div class="hidden filter">
         <h4 style="padding-left: 20px;background: #b2b2b2;">Filter Products:</h4>
         <div>
@@ -107,9 +134,9 @@
             <%= select_tag :cat_search, options_for_select(Category.all.map {|obj, id| [obj, obj]}), prompt: "All" %>
 
             <%= label_tag :price, "Price:"%>
-            <%= radio_button_tag :price, "1-300", params[:price], checked: false %> 1-300$<br>
-            <%= radio_button_tag :price, "301-1000", params[:price], checked: false %> 301-1000$ <br>
-            <%= radio_button_tag :price, "1001-2000", params[:price], checked: false %> 1001-2000$ <br>
+            <%= radio_button_tag :price, "1-300", params[:price], checked: false %> 1-300<br>
+            <%= radio_button_tag :price, "301-1000", params[:price], checked: false %> 301-1000 <br>
+            <%= radio_button_tag :price, "1001-2000", params[:price], checked: false %> 1001-2000 <br>
             <%= label_tag :location, "Location:" %>
             <%= select_tag :location, options_for_select(Division.all), prompt: "Division" %>
 

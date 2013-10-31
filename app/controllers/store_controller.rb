@@ -29,7 +29,9 @@ class StoreController < ApplicationController
       @products = @products.where("price BETWEEN ? AND ?", params[:price].split("-").first, params[:price].split("-").last) unless params[:price].blank?
 
       @electronic_products = find_product("Electronics")
-      
+      @home_and_kitchen = find_product("Home and Kithen")
+      @vehicle = find_product("Vehicle")
+      @books_and_entertainment= find_product("Books and Entertainment")
       @json = @products.to_gmaps4rails
 
   end
