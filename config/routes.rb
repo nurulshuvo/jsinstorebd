@@ -22,6 +22,7 @@ root to: 'store#index', as: 'store'
 
   match 'users/:id' => 'users#show', as: :user
   match 'profile/:id' => 'users#profile', as: :profile
+  match '/comment' => 'users#comment', as: :comment
 
   resources :users do
     resources :products

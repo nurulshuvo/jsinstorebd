@@ -41,7 +41,17 @@
 
 
 </div>
+<% if current_user.id == @user.id %>
+<%= form_for([@user,@product], html: {multipart: :true, id: "mark_sold"}) do |f| %>
+  <%= f.label :sold, "Mark As Sold:" %>
+  <%= f.check_box :sold %>
+  <%= f.submit "Apply Change" %>
+<% end %>
+<% end %>
 
+<% if @product.sold %>
+<span class="alert" id="sold_label">Sold</span>
+<% end %>
 
 
 

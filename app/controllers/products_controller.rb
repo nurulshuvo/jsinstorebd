@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @user = @product.user
     @json = @product.to_gmaps4rails
   end
 

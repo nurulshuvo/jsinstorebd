@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   attr_accessor :division, :district, :thana
   attr_accessible :description, :price, :title, :image, :address, :latitude,
                   :longitude, :user_id, :category_id, :division, :district, :thana,
-                  :tag_list
+                  :tag_list, :sold
   validates :title, :description, :user_id, presence: true
 
   acts_as_taggable

@@ -43,6 +43,7 @@ gem 'acts-as-taggable-on'
 gem 'acts-as-messageable'
 gem 'activeadmin'
 gem 'letsrate'
+gem 'acts_as_commentable', '3.0.1'
 
 # gem 'capistrano', '~> 2.14.2'
 # gem 'unicorn'

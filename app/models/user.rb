@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :address, :latitude, :longitude
 
 validates :address, presence: true
+acts_as_commentable
 letsrate_rater
 letsrate_rateable "rating"
 

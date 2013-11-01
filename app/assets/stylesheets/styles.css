@@ -574,8 +574,9 @@ box-shadow: 0px 0px 5px #000000;
  }
 
  .fb_share{
-  margin-left:5px;
+  margin-left:945px;
   margin-top: 5px;
+
   /*padding:2px 4px 3px;*/
   /*background: #8077e8;*/
   /*border-radius: 4px;*/
@@ -639,3 +640,41 @@ box-shadow: 0px 0px 5px #000000;
 a:visited{
   color: black;
 }
+
+#comment{
+  height: 80px;
+  width: 500px;
+}
+
+#comments{
+  list-style: none;
+}
+#comments li p{
+  padding: 0 0 0 30px;
+}
+
+#mark_sold{
+  position: relative;
+  left: -240px;
+  top: 190px;
+}
+
+#sold_label{
+  position: relative;
+  left: -240px;
+  top: -225px;
+}
+
+.m_opened{
+  background: white !important;
+}
+
+.m_notopened{
+  font-weight: bold;
+  background: #62686D !important;
+}
+table.display tbody .m_notopened td{
+  font-weight: bold;
+}
+/*table.display tr.odd.m_opened { background-color: #ddffdd; }
+table.display tr.even.m_opened { background-color: #eeffee; }*/
