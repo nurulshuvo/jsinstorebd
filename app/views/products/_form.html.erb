@@ -1,3 +1,4 @@
+<div id="custom">
 <%= form_for([@user,@product], html: {multipart: :true, id: "default"}) do |f| %>
 
   <% if @product.errors.any? %>
@@ -43,14 +44,23 @@
             <%= f.text_field :tag_list %>
           </div>
               <div class="field">
-    
+                
                 <%= f.select(:category_id, @categories_for_list, prompt: "Select a category") %>
-              <%#= f.label :category_id, "Category" %><br />
-              <%#= f.select :category_id, Product::CATEGORY_SELECT, prompt: 'Select a category' %>
-              <%#= collection_select(:product, :category_id, Category.order(:name), :id, :name) %>
-              <%#= f.select(:category_id, Category.all.collect {|a| [a.name, a.id]}) %>
+
              </div>
 
+<!-- for desabling root Category from being selected -->
+             <script>
+              $("#product_category_id option").each(function()
+              {
+                if($(this).text().charAt(0) === "-" ){
+                  $(this).prop('disabled', false);
+                }else{
+                  $(this).prop('disabled', true);
+                }
+              })
+             </script>
+<!-- end -->
 
             <div class="field">
               <%= f.label :image %><br />
@@ -81,9 +91,8 @@
 
 
     <%= f.submit "Finish", class: "finish" %>
-  
+  </div>
 <% end %>
-
 
 
     <script type="text/javascript">
@@ -101,7 +110,7 @@
         });
 
         $('div#step').stepy({
-          finishButton: false
+          finishButton: true
         });
 
         // Optionaly
@@ -153,3 +162,61 @@
 
       });
     </script>
+
+
+
+<script type="text/javascript">
+  var validation = function(ids){
+    $(ids).focusout(function(){
+    var title = $("#product_title").val().replace(/^\s+|\s+$/g, "").length != 0;
+    var description = $("#product_description").val().replace(/^\s+|\s+$/g, "").length != 0;
+    var price = $("#product_price").val().replace(/^\s+|\s+$/g, "").length != 0;
+    // alert("dd");
+    if( !title || !description || !price ){
+      $("#default-next-0").hide();
+    }
+
+    if( title && description && price ){
+      $("#default-next-0").show();
+    }
+
+    });
+
+
+$(ids).keyup(function(){
+    var title = $("#product_title").val().replace(/^\s+|\s+$/g, "").length != 0;
+    var description = $("#product_description").val().replace(/^\s+|\s+$/g, "").length != 0;
+    var price = $("#product_price").val().replace(/^\s+|\s+$/g, "").length != 0;
+    // alert("dd");
+    if( !title || !description || !price ){
+      $("#default-next-0").hide();
+    }
+
+    if( title && description && price ){
+      $("#default-next-0").show();
+    }
+    });
+
+$(ids).click(function(){
+    var title = $("#product_title").val().replace(/^\s+|\s+$/g, "").length != 0;
+    var description = $("#product_description").val().replace(/^\s+|\s+$/g, "").length != 0;
+    var price = $("#product_price").val().replace(/^\s+|\s+$/g, "").length != 0;
+    // alert("dd");
+    if( !title || !description || !price ){
+      $("#default-next-0").hide();
+    }
+
+    if( title && description && price ){
+      $("#default-next-0").show();
+    }
+
+    });
+
+
+
+  }
+  validation("#product_title");
+  validation("#product_description");
+  validation("#product_price");
+
+</script>

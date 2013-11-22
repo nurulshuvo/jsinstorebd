@@ -1,6 +1,22 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  address    :text
+#  email      :string(255)
+#  pay_type   :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  buyer      :integer
+#  seller     :integer
+#  approved   :boolean
+#  delevery   :string(255)
+#
+
 class Order < ActiveRecord::Base
-  attr_accessor :stripe_card_token
-  attr_accessible :address, :email, :name, :pay_type
+  attr_accessible :address, :email, :name, :pay_type, :seller, :buyer, :approved, :delevery
   has_many :line_items, dependent: :destroy
 
   PAYMENT_TYPES = ['Check', 'Credit card', 'Purchase order']
@@ -12,15 +28,26 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def save_with_payment
-    if valid?
-      customer = Stripe::Customer.create(description: email, plan: plan_id, card: stripe_card_token)
-      self.stripe_customer_token = customer.id
-      save!
-    end
-  rescue Stripe::InvalidRequestError => e
-    logger.error "Stripe error while creating customer: #{e.message}"
-    errors.add :base, "There was a problem with your credit card"
-    false
+
+
+
+def paypal_url(return_url, notify_url)
+  values = {
+    :business => 'seller@estore.com',
+    :cmd => '_cart',
+    :upload => 1,
+    :return => return_url,
+    :invoice => id,
+    :notify_url => notify_url
+  }
+  line_items.each_with_index do |item, index|
+    values.merge!({
+      "amount_#{index+1}" => item.total_price,
+      "item_name_#{index+1}" => item.product.title,
+      "item_number_#{index+1}" => item.id,
+      "quantity_#{index+1}" => item.quantity
+    })
   end
+  "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+end
 end

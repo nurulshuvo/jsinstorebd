@@ -14,7 +14,7 @@ root to: 'store#index', as: 'store'
   resources :thanas
   resources :districts
   resources :divisions
-  resources :categories
+  resources :categories, except: [:index, :new, :create]
   resources :searches
 
   devise_for :users, :path => '/'
@@ -28,7 +28,8 @@ root to: 'store#index', as: 'store'
     resources :products
   end
   resources :orders
-
+  match 'myorders' => "orders#my_orders", as: :my_orders
+  match 'approval/:order' => "orders#approval", as: :approval
   resources :line_items
 
 

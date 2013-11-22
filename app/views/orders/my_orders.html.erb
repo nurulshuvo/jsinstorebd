@@ -1,0 +1,34 @@
+<div class="order_box">
+<table id="order">
+  <thead>
+    <tr>
+      <th>Buyer Name</th>
+      <th>Buyer Address</th>
+      <th>Buyer Email</th>
+      <th>Delevery Option</th>
+      <th>Approve Order</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @orders.each do |order| %>
+    <tr>
+      <td> <b><%= order.name %></b></td>
+      <td> <%= order.address %></td>
+      <td> <%= order.email %></td>
+      <td> <%= order.delevery %></td>
+      <% if !order.approved%>
+      <td><b> <%= link_to "Approve", approval_path(order) %></b></td>
+      <% else %>
+      <td><b>Already Approved</b></td>
+      <% end %>
+      <td> <%= link_to 'Show', order %></td>
+      <td><%= link_to 'Delete Order', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+
+</div>

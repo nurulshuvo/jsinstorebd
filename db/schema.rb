@@ -117,9 +117,12 @@ ActiveRecord::Schema.define(:version => 20131031181232118) do
     t.text     "address"
     t.string   "email"
     t.string   "pay_type"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
-    t.string   "stripe_customer_token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "buyer"
+    t.integer  "seller"
+    t.boolean  "approved"
+    t.string   "delevery"
   end
 
   create_table "payment_notifications", :force => true do |t|

@@ -26,39 +26,7 @@
  */
 
 
-/*!
- * jQuery Stepy - A Wizard Plugin - http://wbotelhos.com/stepy
- * ------------------------------------------------------------------------------------
- *
- * jQuery Stepy is a plugin based on FormToWizard that generates a customizable wizard.
- * 
- * Licensed under The MIT License
- * 
- * @version        1.0.0
- * @since          2010.07.03
- * @author         Washington Botelho
- * @documentation  wbotelhos.com/stepy
- * @twitter        twitter.com/wbotelhos
- * 
- * Usage with default values:
- * ------------------------------------------------------------------------------------
- * $('#step').stepy();
- *
- *	<form id="step">
- *		<fieldset title="Step 1">
- *			<legend>description one</legend>
- *			<!-- input fields -->
- *		</fieldset>
- *
- *		<fieldset title="Step 2">
- *			<legend>description one</legend>
- *			<!-- input fields -->
- *		</fieldset>
- *
- *		<input type="submit" class="finish" value="Finish!"/>
- *	</form>
- *
- */
+
 
 ;(function($) {
 
@@ -386,6 +354,7 @@ if (search || cat_search){
 	$('.hide-on-search').addClass('hide');
 	$('.hidden').removeClass('hidden');
 	$('.filter2').addClass('hidden');
+	$('#change_on_search').text("Search Result");
 }
 });
 

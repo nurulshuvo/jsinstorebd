@@ -62,7 +62,7 @@
         <ul class="nav inline">
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
-        <li><%= link_to "Profile", user_path(current_user) %></li>
+        <li><%= link_to "My Account", user_path(current_user) %></li>
 
         <li><%#= link_to "Profile", profile_path(current_user) %></li>
         <li><%= link_to "My Products", products_path %></li>
@@ -101,9 +101,9 @@
       </div>
 
       </div> <!--/hide-on-search-->
-
+<h4 style="padding-left: 20px;background: #b2b2b2;">Filter Products:</h4>
       <div class="filter2">
-        <h4 style="padding-left: 20px;background: #b2b2b2;">Filter Products:</h4>
+        
         <div>
           <%= form_tag store_path, method: :get do %>
             <%= label_tag :search, 'Name:'%>
@@ -125,7 +125,7 @@
       </div>
 
       <div class="hidden filter">
-        <h4 style="padding-left: 20px;background: #b2b2b2;">Filter Products:</h4>
+        <!-- <h4 style="padding-left: 20px;background: #b2b2b2;">Filter Products:</h4> -->
         <div>
           <%= form_tag store_path, method: :get do %>
             <%= label_tag :search, 'Name:'%>
@@ -153,7 +153,7 @@
 
 
     <% content_for :scripts do %>
-    <script type="text/javascript" charset="utf-8">
+    <script type="text/javascript" >
       Gmaps.map.callback = function() {
         if (Gmaps.map.markers.length == 1) {
          //only one marker, choose the zoom level you expect

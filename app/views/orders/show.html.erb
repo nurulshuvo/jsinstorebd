@@ -1,3 +1,4 @@
+<div class="order_box">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -14,12 +15,13 @@
   <b>Email:</b>
   <%= @order.email %>
 </p>
-
-<p>
-  <b>Pay type:</b>
-  <%= @order.pay_type %>
-</p>
-
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<h4>Ordered Product:</h4>
+<% @products.each do |p| %>
+  <% product = Product.find(p) %>
+  <b><%= product.title %></b> <br>
+  <%= image_tag product.image_url.to_s %> <br>
+<% end %>
+<%= button_to "Pay Now", @order.paypal_url(store_url, payment_notifications_url) unless @order.seller == current_user.id %>
+<%#= link_to 'Edit', edit_order_path(@order) %>
+<%#= link_to 'Back', orders_path %>
+</div>

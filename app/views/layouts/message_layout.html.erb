@@ -18,7 +18,6 @@
 
 
   <%= csrf_meta_tags %>
-  <%#= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
 </head>
 <body>
 
@@ -62,7 +61,7 @@
         <ul class="nav inline">
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
-        <li><%= link_to "Profile", user_path(current_user) %></li>
+        <li><%= link_to "My Account", user_path(current_user) %></li>
 
         <li><%#= link_to "Profile", profile_path(current_user) %></li>
         <li><%= link_to "My Products", products_path %></li>

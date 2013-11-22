@@ -4,7 +4,7 @@ class LineItemsController < ApplicationController
     @line_items = LineItem.all
 
     respond_to do |format|
-      format.html 
+      format.html
       format.json { render json: @line_items }
     end
   end
@@ -14,7 +14,7 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
 
     respond_to do |format|
-      format.html 
+      format.html
       format.json { render json: @line_item }
     end
   end

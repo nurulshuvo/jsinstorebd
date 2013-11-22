@@ -2,7 +2,7 @@
   <div class="span6 seller">
     <div class="left color1"><h2>As A Buyer</h2></div>
     <div class="right">
-      <h5><%= link_to "Purchased Items", carts_path %></h5>
+      <h5><%= link_to "Purchased Items", orders_path %></h5>
       <h5><%= link_to "Payment", payment_notifications_path %></h5>
       <h5><%= link_to "Account information", profile_path(current_user) %></h5>
     </div>
@@ -12,6 +12,7 @@
       <div class="left color2"><h2>As a Seller</h2></div>
       <div class="right">
         <h5><%= link_to "Sell a Product", new_product_path %></h5>
+        <h5><%= link_to "My Orders", my_orders_path %></h5>
         <h5><%= link_to "Manage Items", products_path %></h5>
         <h5><%= link_to "Payment", payment_notifications_path %></h5>
       </div>

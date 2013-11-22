@@ -1,4 +1,4 @@
-<%= form_for(@order) do |f| %>
+<%= form_for(@order, html:{id: "new_order_form"}) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -13,17 +13,37 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_area :address %>
+    <%= f.text_field :name, id: "order_field" %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, value: current_user.email, id: "order_field" %>
   </div>
   <div class="field">
+    <%= f.label :delevery, "Delevery Option" %><br />
+    <%= f.select :delevery, options_for_select(["Collectable", "Deliveriable"]) %>
+  </div>
+  <div class="field hidden ons">
+    <%= f.label :address %><br />
+    <%= f.text_area :address, value: current_user.address, id: "order_area" %>
+  </div>
+  <script>
+  $("#order_delevery").on("click", function(){
+    var option = $("#order_delevery").val();
+    if (option == "Deliveriable") {
+      $(".hidden").removeClass("hidden");
+    };
+
+    if (option == "Collectable") {
+      $(".ons").addClass("hidden");
+    };
+  });
+    
+  </script>
+  <%= f.hidden_field :buyer, value: current_user.id %>
+  <%= f.hidden_field :seller, value: @user %>
+
+
     <%#= f.label :pay_type %><br />
     <%#= f.text_field :pay_type %>
     <%#= f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>

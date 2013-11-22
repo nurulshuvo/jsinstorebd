@@ -45,5 +45,7 @@ gem 'activeadmin'
 gem 'letsrate'
 gem 'acts_as_commentable', '3.0.1'
 
+gem 'annotate'
+gem 'thin'
 # gem 'capistrano', '~> 2.14.2'
 # gem 'unicorn'

@@ -21,6 +21,7 @@
       </div><!--/span-->
     <% end %>
     </div>
+    <span class="clearfix"></span>
 <!-- mark -->
 <div class="hide-on-search">
     <h4 style="margin-left: 28px;">Home and Kitchen</h4>
@@ -35,6 +36,7 @@
       </div><!--/span-->
     <% end %>
     </div>
+    <span class="clearfix"></span>
 
     <div class="hide-on-search">
     <h4 style="margin-left: 28px;">Vehicle</h4>
@@ -49,6 +51,7 @@
       </div><!--/span-->
     <% end %>
     </div>
+    <span class="clearfix"></span>
 
     <div class="hide-on-search">
     <h4 style="margin-left: 28px;">Books and Entertainment</h4>
@@ -63,9 +66,10 @@
       </div><!--/span-->
     <% end %>
     </div>
+    <span class="clearfix"></span>
 
 <!-- mark -->
-    <h4 style="margin-left: 28px;">All</h4>
+    <h4 style="margin-left: 28px;" id="change_on_search">All</h4>
     <% @products.each do |product| %>
       <div class="span4 box">
         <h4><%= link_to product.title.titleize, product_path(product) %></h4>
