@@ -21,8 +21,8 @@ group :assets do
 end
 
 group :production do
-  # gem 'mysql2'
-  gem 'pg'
+  gem 'mysql2'
+  # gem 'pg'
 end
 
 gem "jquery-rails", "~> 2.3.0"
