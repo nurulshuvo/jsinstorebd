@@ -6,11 +6,11 @@ gem 'rails', '3.2.13'
 #   gem 'rvm-capistrano'
 # end
 group :development, :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem "better_errors"
   gem "binding_of_caller"
 end
-
+gem 'sqlite3'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -46,6 +46,6 @@ gem 'letsrate'
 gem 'acts_as_commentable', '3.0.1'
 
 gem 'annotate'
-gem 'thin'
+# gem 'thin'
 # gem 'capistrano', '~> 2.14.2'
 # gem 'unicorn'
