@@ -20,10 +20,10 @@ group :assets do
   gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 end
 
-group :production do
-  gem 'mysql2'
-  # gem 'pg'
-end
+# group :production do
+#   # gem 'mysql2'
+#   # gem 'pg'
+# end
 
 gem "jquery-rails", "~> 2.3.0"
 gem 'carrierwave'
