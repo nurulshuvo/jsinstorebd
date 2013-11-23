@@ -18,7 +18,6 @@ class ProductsController < ApplicationController
   def new
     @user = User.find(current_user.id)
     @product = @user.products.build
-
   end
 
 

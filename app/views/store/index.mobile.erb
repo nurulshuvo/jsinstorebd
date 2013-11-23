@@ -1,6 +1,6 @@
 
 <div data-role="header">
-  <h1>Product Catalog</h1>
+  <h1>eStore</h1>
   <% if user_signed_in? %>
                  <a href="#" class="navbar-link"><strong><%= current_user.email %></strong></a>
                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: {transition: 'slide'} %>

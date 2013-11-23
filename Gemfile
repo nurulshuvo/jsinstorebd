@@ -11,7 +11,6 @@ group :development, :test do
   gem "binding_of_caller"
 end
 gem 'sqlite3'
-
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -46,6 +45,6 @@ gem 'letsrate'
 gem 'acts_as_commentable', '3.0.1'
 
 gem 'annotate'
-# gem 'thin'
+gem 'thin'
 # gem 'capistrano', '~> 2.14.2'
 # gem 'unicorn'

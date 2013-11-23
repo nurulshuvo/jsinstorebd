@@ -2,7 +2,7 @@ class StoreController < ApplicationController
   layout "store_layout"
   def index
       @products ||= Product.order('created_at desc')
-# raise params.inspect
+      # raise params.inspect
       if params[:search] || params[:cat_search] || params[:price] || params[:location]
             @products = @products.where("title like ?", "%#{params[:search]}%") unless params[:search].blank?
 
@@ -43,7 +43,6 @@ class StoreController < ApplicationController
       @books_and_entertainment= find_product("Books and Entertainment")
       @json = @products.to_gmaps4rails
 
-      # raise params.inspect
 
   end
 
