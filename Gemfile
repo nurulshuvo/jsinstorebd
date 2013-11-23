@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-group :development do
-  gem 'rvm-capistrano'
-end
+# group :development do
+#   gem 'rvm-capistrano'
+# end
 group :development, :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem "better_errors"
   gem "binding_of_caller"
 end
-# gem 'sqlite3'
+gem 'sqlite3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -19,10 +19,10 @@ group :assets do
   gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 end
 
-group :production do
-  gem 'mysql2'
+# group :production do
+  # gem 'mysql2'
   # gem 'pg'
-end
+# end
 
 gem "jquery-rails", "~> 2.3.0"
 gem 'carrierwave'
@@ -44,7 +44,7 @@ gem 'activeadmin'
 gem 'letsrate'
 gem 'acts_as_commentable', '3.0.1'
 
-gem 'annotate'
-# gem 'thin'
-gem 'capistrano', '~> 2.14.2'
-gem 'unicorn'
+# gem 'annotate'
+gem 'thin'
+# gem 'capistrano', '~> 2.14.2'
+# gem 'unicorn'
