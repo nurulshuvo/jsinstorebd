@@ -26,4 +26,4 @@ production:
   pool: 25
   username: root
   password: estore
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
