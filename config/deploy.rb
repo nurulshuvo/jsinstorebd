@@ -4,7 +4,7 @@ require "bundler/capistrano"
 server "192.241.179.155", :web, :app, :db, primary: true
 
 set :application, "jsinstorebd"
-set :user, "shuvo"
+set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, true
