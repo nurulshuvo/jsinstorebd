@@ -388,6 +388,8 @@ margin-left:  20px;
   height: 240px;
   margin: 0px 25px 25px 0;
   float: left;
+  position: relative;
+  bottom: 40px;
 }
 
 .product-show #image img {
@@ -725,4 +727,10 @@ table.display tr.even.m_opened  {
   position: absolute;
   left: 80px;
   top: 35px;
+}
+
+#product_tag{
+  position: relative;
+  bottom: 69px;
+left: 20px;
 }

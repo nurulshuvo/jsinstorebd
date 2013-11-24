@@ -17,7 +17,7 @@ root to: 'store#index', as: 'store'
   resources :categories, except: [:index, :new, :create]
   resources :searches
 
-  devise_for :users, :path => '/'
+  devise_for :users#, :path => '/'
   ActiveAdmin.routes(self)
 
   match 'users/:id' => 'users#show', as: :user
