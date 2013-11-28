@@ -1,9 +1,9 @@
+<% provide(:title, "Home") %>
 <div class="container-fluid">
 <div >
 
 <div class="span9" id="product">
 
-<%#= gmaps4rails(@json) %>
 
 <hr>
 
@@ -12,12 +12,11 @@
     <h4 style="margin-left: 28px;">Electronics</h4>
     <% @electronic_products.each do |product| %>
       <div class="span4 box">
-        <h4><%= link_to product.title.titleize, product_path(product) %></h4>
+        <b><%= link_to product.title.titleize, product_path(product) %></b>
         <p><%= product.address %></p>
         <%= image_tag product.image_url.to_s %>
         
         <p class="price" >Price: <%= number_to_currency(product.price) %></p>
-        <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
       </div><!--/span-->
     <% end %>
     </div>
@@ -27,12 +26,11 @@
     <h4 style="margin-left: 28px;">Home and Kitchen</h4>
     <% @home_and_kitchen.each do |product| %>
       <div class="span4 box">
-        <h4><%= link_to product.title.titleize, product_path(product) %></h4>
+        <b><%= link_to product.title.titleize, product_path(product) %></b>
         <p><%= product.address %></p>
         <%= image_tag product.image_url.to_s %>
         
         <p class="price" >Price: <%= number_to_currency(product.price) %></p>
-        <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
       </div><!--/span-->
     <% end %>
     </div>
@@ -42,12 +40,11 @@
     <h4 style="margin-left: 28px;">Vehicle</h4>
     <% @vehicle.each do |product| %>
       <div class="span4 box">
-        <h4><%= link_to product.title.titleize, product_path(product) %></h4>
+        <b><%= link_to product.title.titleize, product_path(product) %></b>
         <p><%= product.address %></p>
         <%= image_tag product.image_url.to_s %>
         
         <p class="price" >Price: <%= number_to_currency(product.price) %></p>
-        <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
       </div><!--/span-->
     <% end %>
     </div>
@@ -57,12 +54,11 @@
     <h4 style="margin-left: 28px;">Books and Entertainment</h4>
     <% @books_and_entertainment.each do |product| %>
       <div class="span4 box">
-        <h4><%= link_to product.title.titleize, product_path(product) %></h4>
+        <b><%= link_to product.title.titleize, product_path(product) %></b>
         <p><%= product.address %></p>
         <%= image_tag product.image_url.to_s %>
         
         <p class="price" >Price: <%= number_to_currency(product.price) %></p>
-        <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
       </div><!--/span-->
     <% end %>
     </div>
@@ -72,12 +68,11 @@
     <h4 style="margin-left: 28px;" id="change_on_search">All</h4>
     <% @products.each do |product| %>
       <div class="span4 box">
-        <h4><%= link_to product.title.titleize, product_path(product) %></h4>
+        <b><%= link_to product.title.titleize, product_path(product) %></b>
         <p><%= product.address %></p>
         <%= image_tag product.image_url.to_s %>
         
         <p class="price" >Price: <%= number_to_currency(product.price) %></p>
-        <%#= button_to 'Add to Cart', line_items_path(product_id: product), class: "btn pull-right" %>
       </div><!--/span-->
     <% end %>
 

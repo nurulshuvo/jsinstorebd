@@ -416,12 +416,12 @@ height: 537px;
 #product-buttons {
   width: 105px;
   position: absolute;
-  right: -507px;
+  right: -477px;
   top: 29px;
 }
 
 #product-buttons .btn {
-  width: 78px;
+  width: 105px;
   text-align: center;
   margin-bottom: 5px;
 }
@@ -734,3 +734,4 @@ table.display tr.even.m_opened  {
   bottom: 69px;
 left: 20px;
 }
+

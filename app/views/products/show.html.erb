@@ -1,3 +1,4 @@
+<% provide(:title, "Product") %>
 <div id="product-show-page" >
 
 <div id="fb-root"></div><!-- required by facebook -->
@@ -29,26 +30,24 @@
     </div>
 
     <div id="product-buttons">
-        <%= link_to 'Add to Cart', line_items_path(product_id: @product.id), class: "btn", id: "cart_conf",confirm: "Previous Cart Items Will be Deleted!", method: 'post' %>
+        <%= link_to 'Add to Cart', line_items_path(product_id: @product.id), class: "btn wide-button", id: "cart_conf",confirm: "Previous Cart Items Will be Deleted!", method: 'post' %>
+        <% if current_user != @product.user %>
+            <%= link_to "Rate This User", profile_path(@product.user), class: "btn wide-button" %>
+        <% end %>
       <%#= link_to "Seller", user_path(@product.user), class: "btn" %>
-      <%= link_to "Message", new_email_message_path(@product.user.email), class: "btn" %>
+      <%= link_to "Message", new_email_message_path(@product.user.email), class: "btn wide-button" %>
 
-      <%= link_to('Edit', edit_product_path(@product), class:'btn') if current_user.id == @product.user.id %>
-      <%= link_to 'Report', reports_path(product: @product.id, user: current_user.email), class: "btn", method: 'post' %>
+      <%= link_to('Edit', edit_product_path(@product), class:'btn wide-button') if current_user.id == @product.user.id %>
+      <%= link_to 'Report', reports_path(product: @product.id, user: current_user.email), class: "btn wide-button", method: 'post' %>
       <%#= link_to 'Back', products_path, class: 'btn' %>
       
     </div>
 
 
 </div>
-<% if current_user != @product.user %>
-<%#= form_for([@user,@product], html: {multipart: :true, id: "mark_sold"}) do |f| %>
-  <%#= f.label :sold, "Mark As Sold:" %>
-  <%#= f.check_box :sold %>
-  <%#= f.submit "Apply Change" %>
+<%# if current_user != @product.user %>
+<%#= link_to "Rate This User", profile_path(@product.user), id: "mark_sold", class: "btn" %>
 <%# end %>
-<%= link_to "Rate This User", profile_path(@product.user), id: "mark_sold", class: "btn" %>
-<% end %>
 
 <%# if @product.sold %>
 <!-- <span class="alert" id="sold_label">Sold</span> -->
